@@ -1,0 +1,46 @@
+@function toRem($value) 
+    $remValue: calc($value / 16) + rem
+    @return $remValue
+
+
+@font-face 
+  font-family: "MS"
+  src: url("~/assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype-variations")
+  font-weight: 1 999
+
+@font-face 
+  font-family: "OS"
+  src: url("~/assets/fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype-variations")
+  font-weight: 1 999
+
+
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active 
+  transition: all 1s
+  overflow: hidden 
+
+.slide-left-enter-from 
+  
+  transform: translate(50px, 0)
+  opacity: 0
+.slide-left-leave-to 
+
+  transform: translate(-50px, 0)
+  opacity: 0
+.slide-right-enter-from 
+
+  transform: translate(-50px, 0)
+  opacity: 0
+.slide-right-leave-to 
+
+  transform: translate(50px, 0)
+  opacity: 0
+
+:root 
+  --nav-hover:#2196f3
+  --nav-active:#2196f3
+  --nav-background: #333333
+
+
