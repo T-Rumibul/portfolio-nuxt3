@@ -10,7 +10,14 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ["@rah-emil/vite-plugin-vue-type-imports/nuxt", "nuxt-icons"],
+  modules: [
+    "@nuxtjs/i18n",
+    "@rah-emil/vite-plugin-vue-type-imports/nuxt",
+    "nuxt-icons",
+  ],
+  i18n: {
+    vueI18n: "./i18n.config.ts", // if you are using custom path, default
+  },
   components: {
     dirs: ["~/components"],
   },

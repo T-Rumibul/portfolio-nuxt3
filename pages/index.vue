@@ -1,25 +1,32 @@
 <template lang="pug">
 div.container
     PtsAnimatedLines(class="animated-background")
+    <form>
+      <select v-model="locale">
+        <option value="en">en</option>
+        <option value="ru">ru</option>
+      </select>
+      <p>{{ $t('welcome') }}</p>
+    </form>
     div.text-container
-        p Hi there!
-        h1 I'm 
+        p {{ $t('home_hello') }}
+        h1 {{ $t('home_im') }} 
             DynamicText(:text="dynamicText" :speed="100" class="dynamic-text")
-        h2 I'm a Junior Front-End Developer.
-            span To learn more about me or view my portfolio click one of the buttons below or use the nav menu at the top left corner.
+        div(class="learnMore")
+            span {{ $t("home_more")}}
         div.button-container
             UIButtonsButton(:to="'/about'"
             :hover-fill="'#555'"
             :bg="'#2196f3'"
             :icon-name="'user'"
             :icon-size="20"
-            ) My Resume
+            ) {{ $t('home_link_about') }}
             UIButtonsButton(:to="'/portfolio'" 
             :hover-fill="'#2196f3'"
             :button-bg="'transparent'"
             :icon-name="'portfolio'"
             :icon-size="20"
-            ) My Portfolio
+            ) {{ $t('home_link_portfolio') }}
 </template>
 
 <script setup lang="ts">
@@ -33,8 +40,8 @@ definePageMeta({
     ChooseSlideSide(to, from);
   },
 });
-
-const dynamicText = ref(["Andrey", "A begginer developer"]);
+const { t, locale } = useI18n();
+const dynamicText = ref([t("home_dynamic_text.0"), t("home_dynamic_text.1")]);
 </script>
 
 <style lang="sass" scoped>
@@ -58,7 +65,7 @@ const dynamicText = ref(["Andrey", "A begginer developer"]);
     max-width: toRem(550)
 
 .text-container
-    p,h1,h2
+    p,h1
         margin: 0
     p
         font-size: toRem(19)
@@ -69,10 +76,7 @@ const dynamicText = ref(["Andrey", "A begginer developer"]);
         font-weight: 500
         text-transform: uppercase
         white-space: nowrap
-    h2
-        font-weight: 400
-        font-size: toRem(16)
-        font-family: "OS"
+    .learnMore
         margin: toRem(15) 0
         span
             display: block
