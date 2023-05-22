@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+div(class="aboutContainer")
     div(class="photoCredentialsContainer")
         picture(class="photo")
             source(srcset="~assets/images/photo.webp"
@@ -7,35 +7,49 @@ div
             source(srcset="~assets/images/photo.png" type="image/png")
             img(src="~assets/images/photo.png" alt="photo")
         div(class="credentials")
-            h1 Andrey K.
-            h2 Junior Front-End Developer
-    div.aboutMe
-        h3 About Me
-        p {{ aboutMe }}
-    div.experience
-        h3 Experience
-        p {{ experience }}
-
+            h1 {{ $t("about_name") }}
+            h2 {{ $t("about_spec") }}
+    div(class="aboutMeContainer")
+        div(class="aboutMe")
+            h3 {{ $t("about_aboutme_title") }}
+            p {{ $t("about_aboutme") }}
+        div(class="aboutMe")
+            h3 {{ $t('about_experience_title') }}
+            p {{ $t("about_experience") }}
+        div(class="aboutMe")
+            h3 {{ $t('about_skills') }}
+            div(class="skillsContainer")
+                h4 {{ $t('about_skills_main') }}:
+                p(class="skill" v-for="main in skillsMain") {{ main }}
+                h4 {{ $t('about_skills_secondary') }}:
+                p(class="skill skillSecondary" v-for="secondary in skillsSecondary") {{ secondary }}
+    div(class="downloadButtonContainer")
+        a(href="/cv.pdf" download class="downloadButton") {{ $t('about_download') }}
 </template>
 
 <script setup lang="ts">
 import { ChooseSlideSide } from "@/helpers";
-
-const aboutMe = `My name is Andrii, I'm from Ukraine, Kherson. As a self-taught
-developer, I have a passion for web development and a desire to
-learn and grow in the field. My strengths lie in my attention to
-detail and my ability to problem solve. I enjoy working
-collaboratively with others and am always seeking new challenges
-to improve my skills. I am motivated, dedicated, and excited to
-begin my career in Front-End Development.
-`;
-const experience = `For the four months, I have worked as a freelance Front-End
-Developer. In this role, I have primarily focused on converting
-designs from Figma or PSD to HTML/CSS and integrating them
-into existing websites. I have also developed new components
-and added additional functionality to both landing pages and
-Wordpress sites. Additionally, I have experience with integrating
-HTML/CSS into Wordpress CMS.`;
+const skillsMain = ref([
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Node.js",
+  "Vue/Nuxt 3",
+  "Sass",
+  "Pug",
+  "Docker",
+  "Git",
+  "Webpack",
+  "Gulp",
+]);
+const skillsSecondary = ref([
+  "React.js",
+  "TypeScript",
+  "Express.js",
+  "Mongodb",
+  "Electron.js",
+  "Wordpress",
+]);
 definePageMeta({
   pageTransition: {
     name: "slide-left",
@@ -47,11 +61,15 @@ definePageMeta({
 </script>
 
 <style lang="sass" scoped>
-.photoCredentialsContainer
-    display: flex
+.aboutContainer
     max-width: toRem(1000)
     margin: 0 auto
     margin-top: toRem(80)
+    @media(max-width: toRem(1000))
+        margin: 0 toRem(40)
+        margin-top: toRem(80)
+.photoCredentialsContainer
+    display: flex
     align-items: center
 .photo
     width: toRem(200)
@@ -70,4 +88,43 @@ definePageMeta({
         text-transform: uppercase
         font-family: "RC"
     margin-left: toRem(40)
+.aboutMe
+    h3
+        color: var(--text-secondary)
+        text-transform: uppercase
+    p
+        color: var(--text-primary)
+.skillsContainer
+    display: flex
+    gap: toRem(5)
+    flex-wrap: wrap
+    margin-left: toRem(15)
+    margin-bottom: toRem(15)
+    h4
+        width: 100%
+        color: var(--text-primary)
+        text-transform: uppercase
+.skill
+    padding: toRem(10)
+    background: var(--skill-primary)
+    min-width: toRem(100)
+    text-align: center
+    text-transform: uppercase
+    font-family: "RC"
+    margin: 0
+    font-weight: 700
+.skillSecondary
+    background: var(--skill-secondary)
+.downloadButton
+    background: var(--button-primary)
+    color: var(--text-primary)
+    padding: toRem(15)
+    text-align: center
+    border-radius: 15px
+    text-decoration: none
+.downloadButtonContainer
+    display: flex
+    justify-content: center
+    margin-top: toRem(40)
+    margin-bottom: toRem(30)
 </style>

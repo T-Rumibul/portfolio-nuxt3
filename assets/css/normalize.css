@@ -1,8 +1,6 @@
 @import "normalize.css/normalize.css";
 
-
-body {   
-    font-family: "MS";
-    background-color: #222;
-    overflow: hidden;
+body {
+  font-family: "MS";
+  background-color: #222;
 }
