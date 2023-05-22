@@ -1,13 +1,6 @@
 <template lang="pug">
 div.container
     PtsAnimatedLines(class="animated-background")
-    <form>
-      <select v-model="locale">
-        <option value="en">en</option>
-        <option value="ru">ru</option>
-      </select>
-      <p>{{ $t('welcome') }}</p>
-    </form>
     div.text-container
         p {{ $t('home_hello') }}
         h1 {{ $t('home_im') }} 
@@ -16,13 +9,13 @@ div.container
             span {{ $t("home_more")}}
         div.button-container
             UIButtonsButton(:to="'/about'"
-            :hover-fill="'#555'"
+            :hover-fill="'var(--button-secondary)'"
             :bg="'#2196f3'"
             :icon-name="'user'"
             :icon-size="20"
             ) {{ $t('home_link_about') }}
             UIButtonsButton(:to="'/portfolio'" 
-            :hover-fill="'#2196f3'"
+            :hover-fill="'var(--button-primary)'"
             :button-bg="'transparent'"
             :icon-name="'portfolio'"
             :icon-size="20"
@@ -40,8 +33,9 @@ definePageMeta({
     ChooseSlideSide(to, from);
   },
 });
-const { t, locale } = useI18n();
-const dynamicText = ref([t("home_dynamic_text.0"), t("home_dynamic_text.1")]);
+const { t } = useI18n();
+
+const dynamicText = ["home_dynamic_text.0", "home_dynamic_text.1"];
 </script>
 
 <style lang="sass" scoped>

@@ -17,9 +17,9 @@ div(v-else)
 <script setup lang="ts">
 import { Button } from "@/typing";
 const props = withDefaults(defineProps<Button>(), {
-  buttonBg: "#2196f3",
-  hoverFill: "#555",
-  textColor: "#fff",
+  buttonBg: "var(--button-primary)",
+  hoverFill: "var(--button-secondary)",
+  textColor: "var(--text-primary)",
   iconColor: "#fff",
   iconSize: 16,
   textSize: 16,

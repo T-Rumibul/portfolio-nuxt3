@@ -94,7 +94,7 @@ a:hover
 <style lang="sass">
 .navIcon
     svg
-        fill: #fff
+        fill: var(--nav-icon-primary)
         width: toRem(18)
         height: toRem(16)
         display: block
@@ -102,13 +102,13 @@ a:hover
 a:hover
     .navIcon
         svg
-            fill: var(--nav-hover)
+            fill: var(--nav-icon-hover)
             opacity: 1
 
 
 .router-link-active
     .navIcon
         svg
-            fill: var(--nav-active)
+            fill: var(--nav-icon-active)
             opacity: 1
 </style>
