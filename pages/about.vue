@@ -24,7 +24,11 @@ div(class="aboutContainer")
                 h4 {{ $t('about_skills_secondary') }}:
                 p(class="skill skillSecondary" v-for="secondary in skillsSecondary") {{ secondary }}
     div(class="downloadButtonContainer")
-        a(href="/cv.pdf" download class="downloadButton") {{ $t('about_download') }}
+        UIButtonsButton(
+            :hover-fill="'var(--button-secondary)'"
+            :bg="'var(--button-primary)'"
+            :download="'/cv.pdf'"
+            ) {{ $t('about_download') }}
 </template>
 
 <script setup lang="ts">
@@ -65,12 +69,16 @@ definePageMeta({
     max-width: toRem(1000)
     margin: 0 auto
     margin-top: toRem(80)
-    @media(max-width: toRem(1000))
+    @media(max-width: toRem(1070))
         margin: 0 toRem(40)
         margin-top: toRem(80)
 .photoCredentialsContainer
     display: flex
     align-items: center
+    @media(max-width: toRem(650))
+        flex-wrap: wrap
+        justify-content: center
+        text-align: center
 .photo
     width: toRem(200)
     height: toRem(200)
@@ -104,6 +112,8 @@ definePageMeta({
         width: 100%
         color: var(--text-primary)
         text-transform: uppercase
+    @media(max-width: toRem(360))
+        justify-content: center
 .skill
     padding: toRem(10)
     background: var(--skill-primary)

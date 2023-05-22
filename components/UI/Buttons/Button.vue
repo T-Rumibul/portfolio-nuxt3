@@ -6,10 +6,15 @@ div(v-if="to")
         span
             slot
 
-div(v-else)
-    button(type="button" class="button")
+div(v-else-if="!download")
+    button(type="button" class="button" :style="buttonStyles")
         NuxtIcon(v-if="iconName" :name="iconName" class="nuxtIcon" :filled="true")
         span 
+            slot
+div(v-else-if="download")
+    a(:href="download" download class="button" :style="buttonStyles")
+        NuxtIcon(v-if="iconName" :name="iconName" class="nuxtIcon" :filled="true") 
+        span
             slot
 
     
@@ -49,6 +54,7 @@ computeButtonStyles();
 
 <style lang="sass" scoped>
 .button
+    display: block
     text-decoration: none
     border: 1px solid var(--border-color)
     text-transform: var(--text-transform)
