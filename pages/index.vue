@@ -23,13 +23,14 @@ div.container
 </template>
 
 <script setup lang="ts">
-import { chooseSlideSide } from "@/assets";
+import { ChooseSlideSide } from "@/helpers";
+
 definePageMeta({
   pageTransition: {
     name: "slide-left",
   },
   middleware(to, from) {
-    chooseSlideSide(to, from);
+    ChooseSlideSide(to, from);
   },
 });
 
@@ -77,7 +78,7 @@ const dynamicText = ref(["Andrey", "A begginer developer"]);
             display: block
 
     .dynamic-text
-        color: #2196f3
+        color: var(--text-secondary)
 .button-container
     display: flex
     flex-wrap: wrap

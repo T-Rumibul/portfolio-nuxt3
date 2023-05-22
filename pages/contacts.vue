@@ -4,16 +4,15 @@ div
 </template>
 
 <script setup lang="ts">
-import { chooseSlideSide } from '@/assets';
-
+import { ChooseSlideSide } from "@/helpers";
 definePageMeta({
-    pageTransition: {
-        name: "slide-left"
-    },
-    middleware(to, from) {
-        chooseSlideSide(to, from)
-    }
-})
+  pageTransition: {
+    name: "slide-left",
+  },
+  middleware(to, from) {
+    ChooseSlideSide(to, from);
+  },
+});
 </script>
 
 <style lang="sass" scoped>

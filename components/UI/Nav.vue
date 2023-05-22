@@ -4,19 +4,19 @@ nav(class="nav")
     ul(:class="isActive ? 'nav-list_active' : ''" class="nav-list")
         li(class="active_page")
             NuxtLink(to="/")
-                NuxtIcon(class="navIcon" name="home" filled="true")
+                NuxtIcon(class="navIcon" name="home" :filled="true")
                 span Home
         li
             NuxtLink(to="/about")
-                NuxtIcon(class="navIcon" name="user" filled="true")
+                NuxtIcon(class="navIcon" name="user" :filled="true")
                 span About Me
         li
             NuxtLink(to="/portfolio")
-                NuxtIcon(class="navIcon" name="portfolio" filled="true")
+                NuxtIcon(class="navIcon" name="portfolio" :filled="true")
                 span Portfolio
         li
             NuxtLink(to="/contacts" )
-                NuxtIcon(class="navIcon" name="chat" filled="true")
+                NuxtIcon(class="navIcon" name="chat" :filled="true")
                 span Contacts
         
 </template>
@@ -65,7 +65,7 @@ a:hover
             right: toRem(-120)
             width: toRem(95)
             top: 0
-            color: #fff
+            color: var(--text-primary)
             transition: right 0.2s linear
             display: block
 
