@@ -31,6 +31,7 @@ const props = withDefaults(defineProps<Button>(), {
   borderColor: "#2196f3",
   textUpperCase: true,
   textWeight: 500,
+  minWidth: 0,
 });
 const buttonStyles = ref();
 const computeButtonStyles = () => {
@@ -43,7 +44,10 @@ const computeButtonStyles = () => {
         --text-color: ${props.textColor};
         --text-size: ${props.textSize};
         --text-transform: ${props.textUpperCase ? "uppercase" : "none"};
-        --text-weight: ${props.textWeight}
+        --text-weight: ${props.textWeight};
+        --btn-min-width: ${
+          props.minWidth / 16 === 0 ? "none" : props.minWidth / 16 + "rem"
+        }
     `;
 
   buttonStyles.value = styles;
@@ -67,7 +71,7 @@ computeButtonStyles();
     padding-left: 1.5rem
     padding-right: 1.5rem
     border-radius: 9999px
-    margin: 0 toRem(8)
+    min-width: var(--btn-min-width)
     display: flex
     align-items: center
     justify-content: center

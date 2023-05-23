@@ -23,6 +23,19 @@ nav(class="nav")
 
 <script setup lang="ts">
 let isActive = ref(false);
+
+onMounted(() => {
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!target) return;
+
+    const navPanel = document.querySelector(".nav");
+    const isSame = target instanceof Node && navPanel?.contains(target);
+    if (!isSame) {
+      isActive.value = false;
+    }
+  });
+});
 </script>
 
 <style lang="sass" scoped>
@@ -53,21 +66,19 @@ a:hover
     span:nth-child(2)
         color: var(--nav-hover)
 
-@media(max-width: 1025px)
+
+.nav-list
     span:nth-child(2)
-        display: none
-@media(min-width: 1025px)
-    .nav-list
-        span:nth-child(2)
-            position: absolute
-            text-decoration: none
-            text-transform: uppercase
-            right: toRem(-120)
-            width: toRem(95)
-            top: 0
-            color: var(--text-primary)
-            transition: right 0.2s linear
-            display: block
+        position: absolute
+        text-decoration: none
+        text-transform: uppercase
+        right: toRem(-120)
+        width: toRem(95)
+        top: 0
+        color: var(--text-primary)
+        transition: right 0.2s linear
+        display: block
+        font-weight: 600
 
 
 
@@ -75,7 +86,6 @@ a:hover
     &_active
         visibility: visible
         height: toRem(164)
-        @media(min-width: 1025px)
         span
             right: toRem(-125)
             visibility: visible

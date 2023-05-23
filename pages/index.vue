@@ -10,15 +10,17 @@ div.container
         div.button-container
             UIButtonsButton(:to="'/about'"
             :hover-fill="'var(--button-secondary)'"
-            :bg="'#2196f3'"
+            :button-bg="'#2196f3'"
             :icon-name="'user'"
             :icon-size="20"
+            :min-width="200"
             ) {{ $t('home_link_about') }}
             UIButtonsButton(:to="'/portfolio'" 
             :hover-fill="'var(--button-primary)'"
             :button-bg="'transparent'"
             :icon-name="'portfolio'"
             :icon-size="20"
+            :min-width="200"
             ) {{ $t('home_link_portfolio') }}
 </template>
 
@@ -57,6 +59,8 @@ const dynamicText = ["home_dynamic_text.0", "home_dynamic_text.1"];
     z-index: 5
     color: #fff
     max-width: toRem(550)
+    @media (max-width: toRem(550))
+        margin: 0 toRem(15)
 
 .text-container
     p,h1
@@ -64,12 +68,16 @@ const dynamicText = ["home_dynamic_text.0", "home_dynamic_text.1"];
     p
         font-size: toRem(19)
         text-transform: uppercase
+        @media (max-width: toRem(550))
+            font-size: toRem(17)
     h1
         font-size: toRem(42)
         font-family: "OS"
         font-weight: 500
         text-transform: uppercase
         white-space: nowrap
+        @media (max-width: toRem(550))
+            font-size: toRem(25)
     .learnMore
         margin: toRem(15) 0
         span
@@ -83,4 +91,5 @@ const dynamicText = ["home_dynamic_text.0", "home_dynamic_text.1"];
     justify-content: center
     align-items: center
     margin-top: toRem(10)
+    gap: toRem(15)
 </style>

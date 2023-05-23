@@ -28,6 +28,7 @@ div(class="aboutContainer")
             :hover-fill="'var(--button-secondary)'"
             :bg="'var(--button-primary)'"
             :download="'/cv.pdf'"
+            :min-width="200"
             ) {{ $t('about_download') }}
 </template>
 

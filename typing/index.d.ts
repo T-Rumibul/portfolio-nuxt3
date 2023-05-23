@@ -21,4 +21,5 @@ export interface Button {
   hoverFill?: string;
   textUpperCase?: boolean;
   download?: string;
+  minWidth?: number;
 }
