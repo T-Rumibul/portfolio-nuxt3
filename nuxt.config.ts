@@ -21,4 +21,7 @@ export default defineNuxtConfig({
   components: {
     dirs: ["~/components"],
   },
+  runtimeConfig: {
+    mongodbUri: process.env.MONGODB_URI,
+  },
 });
