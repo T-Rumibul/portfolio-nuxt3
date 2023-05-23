@@ -6,7 +6,6 @@ div
 
 <script setup lang="ts">
 const { locale } = useI18n();
-console.log(locale.value);
 </script>
 
 <style lang="sass" scoped>

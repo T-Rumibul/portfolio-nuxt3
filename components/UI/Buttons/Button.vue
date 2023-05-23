@@ -75,6 +75,7 @@ computeButtonStyles();
     display: flex
     align-items: center
     justify-content: center
+    cursor: pointer
     span
         position: relative
         font-size: var(--text-size)

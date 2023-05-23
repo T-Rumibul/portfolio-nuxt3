@@ -8,6 +8,15 @@ export interface DynamicText {
   speed?: number;
 }
 
+export interface Project {
+  title: string;
+  link: string;
+  git: string;
+  pages: string[];
+  image: string;
+  tech: string[];
+}
+
 export interface Button {
   to?: string;
   iconName?: "chat" | "home" | "portfolio" | "user";

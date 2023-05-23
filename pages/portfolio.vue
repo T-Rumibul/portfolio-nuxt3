@@ -1,11 +1,14 @@
 <template lang="pug">
-div
-    h1 Portfolio
+div.portfolio
+    h1 {{ $t('portfolio_title') }}
+    div(class="projects")
+      Project(v-for="project in projects" :="project")
 </template>
 
 <script setup lang="ts">
 import { ChooseSlideSide } from "@/helpers";
-
+const { data } = useFetch("/api/projects");
+const projects = ref(data);
 definePageMeta({
   pageTransition: {
     name: "slide-left",
@@ -17,10 +20,19 @@ definePageMeta({
 </script>
 
 <style lang="sass" scoped>
-div
-    background-color: #222
-    width: 100vw
-    height: 100vh
-    h1
-        margin: 0
+.portfolio
+
+  min-height: 100vh
+  h1
+    color: var(--text-secondary)
+    text-align: center
+    text-transform: uppercase
+    padding-top: toRem(50)
+    padding-bottom: toRem(50)
+    margin: 0
+.projects
+  display: flex
+  gap: 1rem
+  flex-wrap: wrap
+  justify-content: center
 </style>
