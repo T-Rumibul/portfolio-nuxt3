@@ -45,6 +45,6 @@ npm run preview
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
 [license-src]: https://img.shields.io/github/license/nuxt-modules/icon.svg?style=flat&colorA=18181B&colorB=28CF8D
-[license-href]: https://github.com/RynerNO/portfolio-v2/blob/main/LICENSE
+[license-href]: https://github.com/RynerNO/portfolio-nuxt3/blob/main/LICENSE
 [nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
 [nuxt-href]: https://nuxt.com
