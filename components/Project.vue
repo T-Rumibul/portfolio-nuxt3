@@ -32,6 +32,8 @@ const props = defineProps<Project>();
     box-shadow: 8px 8px 0px rgb(175 171 171 / 7%)
     border-radius: 0px 0px 8px 8px
     width: toRem(350)
+    @media(min-width: toRem(1440))
+        width: toRem(400)
     @media (max-width: toRem(400))
         width: toRem(300)
         margin: 0 toRem(10)
@@ -68,6 +70,10 @@ const props = defineProps<Project>();
     text-align: center
 .project__image
     height: toRem(187)
+    @media(min-width: toRem(1440))
+        height: toRem(220)
+    @media (max-width: toRem(400))
+        height: toRem(150)
     img
         width: 100%
         height: 100%

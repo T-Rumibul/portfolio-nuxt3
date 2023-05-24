@@ -18,7 +18,8 @@ nav(class="nav")
             NuxtLink(to="/contacts" @click="isActive = !isActive")
                 NuxtIcon(class="navIcon" name="chat" :filled="true")
                 span Contacts
-        
+        li(class="langSwitch")
+            UIButtonsLangSwitch
 </template>
 
 <script setup lang="ts">
@@ -42,14 +43,15 @@ onMounted(() => {
 .nav-list
     display: flex
     flex-direction: column
-    align-items: center
+    align-items: start
     background-color: var(--nav-background)
     padding: toRem(25) toRem(15)
-    border-radius: 0 0 999px 999px
+    border-radius: 0 0 5px 5px
     margin-top: toRem(-21)
     height: 0
     transition: height 0.2s linear
     visibility: hidden
+    overflow: hidden
 
 
 .nav-list
@@ -82,10 +84,11 @@ a:hover
 
 
 
-.nav-list
-    &_active
+.nav-list_active
         visibility: visible
         height: toRem(164)
+        @media (max-width: toRem(400))
+            height: toRem(230)
         span
             right: toRem(-125)
             visibility: visible
@@ -121,4 +124,10 @@ a:hover
         svg
             fill: var(--nav-icon-active)
             opacity: 1
+.langSwitch
+    display: none
+    @media (max-width: toRem(400))
+        display: flex
+        justify-content: center
+        width: 100%
 </style>

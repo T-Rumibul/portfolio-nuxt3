@@ -18,7 +18,7 @@ const props = defineProps<props>();
 
 <style lang="sass" scoped>
 .button
-    width: toRem(50)
+    width: toRem(170)
     height: toRem(50)
     border: none
     outline: none

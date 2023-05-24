@@ -27,12 +27,13 @@ definePageMeta({
     color: var(--text-secondary)
     text-align: center
     text-transform: uppercase
-    padding-top: toRem(50)
-    padding-bottom: toRem(50)
+    padding-top: toRem(120)
+    padding-bottom: toRem(90)
     margin: 0
 .projects
   display: flex
   gap: 1rem
   flex-wrap: wrap
   justify-content: center
+  max-width: max-content
 </style>

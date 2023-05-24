@@ -76,9 +76,9 @@ definePageMeta({
 .photoCredentialsContainer
     display: flex
     align-items: center
+    justify-content: center
     @media(max-width: toRem(650))
         flex-wrap: wrap
-        justify-content: center
         text-align: center
 .photo
     width: toRem(200)
