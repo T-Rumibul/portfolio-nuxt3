@@ -38,7 +38,6 @@ div(class="aboutContainer")
 </template>
 
 <script setup lang="ts">
-import { ChooseSlideSide } from "@/helpers";
 const skillsMain = ref([
   "HTML",
   "CSS",
@@ -60,14 +59,6 @@ const skillsSecondary = ref([
   "Electron.js",
   "Wordpress",
 ]);
-definePageMeta({
-  pageTransition: {
-    name: "slide-left",
-  },
-  middleware(to, from) {
-    ChooseSlideSide(to, from);
-  },
-});
 </script>
 
 <style lang="sass" scoped>

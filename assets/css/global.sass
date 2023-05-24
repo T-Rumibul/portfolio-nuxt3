@@ -23,32 +23,15 @@
   font-style: normal
   font-weight: 700
 
-.slide-left-enter-active,
-.slide-left-leave-active,
-.slide-right-enter-active,
-.slide-right-leave-active 
-  transition: all 0.5s
-  overflow: hidden 
-.slide-left-enter-from 
-  
-  transform: translate(50px, 0)
-  opacity: 0
-  overflow: hidden 
-.slide-left-leave-to 
+.page-enter-active,
+.page-leave-active 
+  transition: all 0.2s
 
-  transform: translate(-50px, 0)
+.page-enter-from,
+.page-leave-to 
   opacity: 0
-  overflow: hidden 
-.slide-right-enter-from 
+  filter: blur(1rem)
 
-  transform: translate(-50px, 0)
-  opacity: 0
-  overflow: hidden 
-.slide-right-leave-to 
-
-  transform: translate(50px, 0)
-  opacity: 0
-  overflow: hidden 
 
 :root 
   --nav-hover:#2196f3

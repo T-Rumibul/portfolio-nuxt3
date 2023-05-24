@@ -5,15 +5,15 @@ nav(class="nav")
         li(class="active_page")
             NuxtLink(:to="path('/')"  @click="isActive = !isActive")
                 NuxtIcon(class="navIcon" name="home" :filled="true")
-                span Home
+                span {{ $t('nav_home') }}
         li
             NuxtLink(:to="path('about')" @click="isActive = !isActive")
                 NuxtIcon(class="navIcon" name="user" :filled="true")
-                span About Me
+                span {{ $t('nav_about') }}
         li
             NuxtLink(:to="path('portfolio')" @click="isActive = !isActive")
                 NuxtIcon(class="navIcon" name="portfolio" :filled="true")
-                span Portfolio
+                span {{ $t('nav_portfolio') }}
         li(class="langSwitch")
             UIButtonsLangSwitch
 </template>
@@ -70,7 +70,7 @@ a:hover
         position: absolute
         text-decoration: none
         text-transform: uppercase
-        right: toRem(-120)
+        right: toRem(-105)
         width: toRem(95)
         top: 0
         color: var(--text-primary)

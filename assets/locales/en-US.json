@@ -1,4 +1,7 @@
 {
+  "nav_home": "Home",
+  "nav_about": "About Me",
+  "nav_portfolio": "Portfolio",
   "home_hello": "Hi there!",
   "home_im": "I'm",
   "home_more": "To learn more about me or view my portfolio click one of the buttons below or use the nav menu.",

@@ -27,16 +27,6 @@ div.container
 </template>
 
 <script setup lang="ts">
-import { ChooseSlideSide } from "@/helpers";
-
-definePageMeta({
-  pageTransition: {
-    name: "slide-left",
-  },
-  middleware(to, from) {
-    ChooseSlideSide(to, from);
-  },
-});
 const renderAnimation = ref(false);
 const dynamicText = ["home_dynamic_text.0", "home_dynamic_text.1"];
 onMounted(() => {
@@ -44,7 +34,7 @@ onMounted(() => {
   renderAnimation.value = false;
   const id = setTimeout(() => {
     renderAnimation.value = true;
-  }, 100);
+  }, 250);
 });
 </script>
 

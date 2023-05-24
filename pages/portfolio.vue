@@ -3,23 +3,14 @@ div.portfolio
     Head
       Title Portfolio | Junior Front-End Developer
     h1 {{ $t('portfolio_title') }}
+    LoadingCircle(v-if="!projects" class="loading")
     div(class="projects")
       Project(v-for="project in projects" :="project")
 </template>
 
 <script setup lang="ts">
-import { ChooseSlideSide } from "@/helpers";
 const { data } = useFetch("/api/projects");
 const projects = ref(data);
-
-definePageMeta({
-  pageTransition: {
-    name: "slide-left",
-  },
-  middleware(to, from) {
-    ChooseSlideSide(to, from);
-  },
-});
 </script>
 
 <style lang="sass" scoped>
@@ -38,4 +29,8 @@ definePageMeta({
   flex-wrap: wrap
   justify-content: center
   max-width: max-content
+.loading
+  position: absolute
+  top: calc(50% - toRem(58))
+  left: calc(50% - toRem(58))
 </style>
