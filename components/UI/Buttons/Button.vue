@@ -1,6 +1,6 @@
 <template lang="pug">
 div(v-if="to")
-    NuxtLink(:to="to" class="button"
+    NuxtLink(:to="external ? to : path(to)" class="button"
     :style="buttonStyles" :target="target" )
         NuxtIcon(v-if="iconName" :name="iconName" class="nuxtIcon" :filled="true")
         span
@@ -33,7 +33,9 @@ const props = withDefaults(defineProps<Button>(), {
   textWeight: 500,
   minWidth: 0,
   target: "",
+  external: false,
 });
+const path = useLocalePath();
 const buttonStyles = ref();
 const computeButtonStyles = () => {
   const styles = `

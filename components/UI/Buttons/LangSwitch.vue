@@ -1,11 +1,12 @@
 <template lang="pug">
 div
-    button(type="button" class="button" :class="locale === 'en' ? 'button_active': ''" @click="locale = 'en'") EN
-    button(type="button" class="button" :class="locale === 'ru' ? 'button_active': ''" @click="locale = 'ru'") RU
+    NuxtLink(class="button" :class="locale === 'en' ? 'button_active': ''" :to="switchLocalePath('en')") EN
+    NuxtLink(type="button" class="button" :class="locale === 'ru' ? 'button_active': ''" :to="switchLocalePath('ru')") RU
 </template>
 
 <script setup lang="ts">
 const { locale } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
 </script>
 
 <style lang="sass" scoped>
@@ -16,6 +17,7 @@ const { locale } = useI18n();
     background: var(--button-secondary)
     color: var(--text-primary)
     padding: toRem(10)
+    text-decoration: none
     cursor: pointer
 .button:nth-child(1)
     border-radius: 5px 0px 0px 5px

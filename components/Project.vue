@@ -6,7 +6,7 @@ div(class="project")
     div(class="project__image")
         img(:src="image" alt="Project preview image")
     div(class="project__hover")
-        UIButtonsButton(:to="link" :target="'_blank'") {{ $t('project_button') }}
+        UIButtonsButton(:to="link" :external="true" :target="'_blank'") {{ $t('project_button') }}
 </template>
 
 <script setup lang="ts">

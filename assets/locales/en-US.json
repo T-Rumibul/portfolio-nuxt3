@@ -1,0 +1,22 @@
+{
+  "home_hello": "Hi there!",
+  "home_im": "I'm",
+  "home_more": "To learn more about me or view my portfolio click one of the buttons below or use the nav menu.",
+  "home_link_portfolio": "My Portfolio",
+  "home_link_about": "My Resume",
+  "home_dynamic_text": ["Andrey", "a web developer."],
+  "about_aboutme": "My name is Andrey, I'm from Ukraine. As a self-taught\n developer, I have a passion for web development and a desire to\n learn and grow in the field. My strengths lie in my attention to\n detail and my ability to problem solve. I enjoy working\n collaboratively with others and am always seeking new challenges\n to improve my skills. I am motivated, dedicated, and excited to\n begin my career in Front-End Development.",
+  "about_experience": "For the four months, I have worked as a freelance Front-End\n Developer. In this role, I have primarily focused on converting\n designs from Figma or PSD to HTML/CSS and integrating them\n into existing websites. I have also developed new components\n and added additional functionality to both landing pages and\n Wordpress sites. Additionally, I have experience with integrating\n HTML/CSS into Wordpress CMS.",
+  "about_name": "Andrey K.",
+  "about_spec": "Junior Front-End Developer",
+  "about_aboutme_title": "About Me",
+  "about_experience_title": "Experience",
+  "about_contacts_title": "Contacts",
+  "about_skills": "Skills",
+  "about_skills_main": "Main",
+  "about_skills_secondary": "Familiar with",
+  "about_languages": "Languages",
+  "about_download": "Download CV",
+  "portfolio_title": "My Portfolio",
+  "project_button": "Open"
+}

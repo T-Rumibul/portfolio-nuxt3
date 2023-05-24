@@ -46,7 +46,6 @@ const filldynamicText = () => {
       currentText = [];
       currentLocale = locale.value;
       isPaused = false;
-      console.log(isPaused);
       return;
     }
     if (isPaused) return;

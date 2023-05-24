@@ -33,4 +33,5 @@ export interface Button {
   download?: string;
   minWidth?: number;
   target?: string;
+  external?: boolean;
 }

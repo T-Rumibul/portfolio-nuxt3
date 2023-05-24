@@ -2,7 +2,7 @@
 div.container
     Head
         Title Junior Front-End Developer 
-    PtsAnimatedLines(class="animated-background")
+    PtsAnimatedLines(class="animated-background" v-if="renderAnimation")
     div.text-container
         p {{ $t('home_hello') }}
         h1 {{ $t('home_im') }} 
@@ -37,9 +37,15 @@ definePageMeta({
     ChooseSlideSide(to, from);
   },
 });
-const { t } = useI18n();
-
+const renderAnimation = ref(false);
 const dynamicText = ["home_dynamic_text.0", "home_dynamic_text.1"];
+onMounted(() => {
+  // trick to fix buging animation after language change
+  renderAnimation.value = false;
+  const id = setTimeout(() => {
+    renderAnimation.value = true;
+  }, 100);
+});
 </script>
 
 <style lang="sass" scoped>

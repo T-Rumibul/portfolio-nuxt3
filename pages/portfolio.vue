@@ -11,6 +11,7 @@ div.portfolio
 import { ChooseSlideSide } from "@/helpers";
 const { data } = useFetch("/api/projects");
 const projects = ref(data);
+
 definePageMeta({
   pageTransition: {
     name: "slide-left",

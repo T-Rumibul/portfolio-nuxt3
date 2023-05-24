@@ -3,15 +3,15 @@ nav(class="nav")
     UIButtonsBurger(:isActive="isActive" @click="isActive = !isActive")
     ul(:class="isActive ? 'nav-list_active' : ''" class="nav-list")
         li(class="active_page")
-            NuxtLink(to="/"  @click="isActive = !isActive")
+            NuxtLink(:to="path('/')"  @click="isActive = !isActive")
                 NuxtIcon(class="navIcon" name="home" :filled="true")
                 span Home
         li
-            NuxtLink(to="/about" @click="isActive = !isActive")
+            NuxtLink(:to="path('about')" @click="isActive = !isActive")
                 NuxtIcon(class="navIcon" name="user" :filled="true")
                 span About Me
         li
-            NuxtLink(to="/portfolio" @click="isActive = !isActive")
+            NuxtLink(:to="path('portfolio')" @click="isActive = !isActive")
                 NuxtIcon(class="navIcon" name="portfolio" :filled="true")
                 span Portfolio
         li(class="langSwitch")
@@ -20,7 +20,7 @@ nav(class="nav")
 
 <script setup lang="ts">
 let isActive = ref(false);
-
+const path = useLocalePath();
 onMounted(() => {
   document.addEventListener("click", (event) => {
     const target = event.target;

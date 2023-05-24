@@ -16,7 +16,21 @@ export default defineNuxtConfig({
     "nuxt-icons",
   ],
   i18n: {
-    vueI18n: "./i18n.config.ts", // if you are using custom path, default
+    defaultLocale: "en",
+    strategy: "prefix_except_default",
+    langDir: "assets/locales",
+    locales: [
+      {
+        code: "en",
+        file: "en-US.json",
+        iso: "en-US",
+      },
+      {
+        code: "ru",
+        file: "ru-RU.json",
+        iso: "ru-RU",
+      },
+    ],
   },
   components: {
     dirs: ["~/components"],
