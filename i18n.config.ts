@@ -10,7 +10,7 @@ export default defineI18nConfig(() => ({
       home_link_portfolio: "My Portfolio",
       home_link_about: "My Resume",
       home_dynamic_text: ["Andrey", "a web developer."],
-      about_aboutme: `My name is Andrey, I'm from Ukraine, Kherson. As a self-taught
+      about_aboutme: `My name is Andrey, I'm from Ukraine. As a self-taught
       developer, I have a passion for web development and a desire to
       learn and grow in the field. My strengths lie in my attention to
       detail and my ability to problem solve. I enjoy working
@@ -28,6 +28,7 @@ export default defineI18nConfig(() => ({
       about_spec: "Junior Front-End Developer",
       about_aboutme_title: "About Me",
       about_experience_title: "Experience",
+      about_contacts_title: "Contacts",
       about_skills: "Skills",
       about_skills_main: "Main",
       about_skills_secondary: "Familiar with",
@@ -44,12 +45,13 @@ export default defineI18nConfig(() => ({
       home_link_portfolio: "Портфолио",
       home_link_about: "Резюме",
       home_dynamic_text: ["Андрей", "Веб разработчик."],
-      about_aboutme: `Меня зовут Андрей, я из Украины, город Херсон. Я самоучка-разработчик и у меня большая страсть к веб-разработке, а также желание учиться и развиваться в этой сфере. Мои сильные стороны - это внимание к деталям и умение решать возникающие проблемы. Мне нравится работать в команде и я постоянно ищу новые вызовы, чтобы улучшить свои навыки. Я мотивирован и трудолюбив`,
+      about_aboutme: `Меня зовут Андрей, я родом из Украины. Я самоучка-разработчик и у меня большая страсть к веб-разработке, а также желание учиться и развиваться в этой сфере. Мои сильные стороны - это внимание к деталям и умение решать возникающие проблемы. Мне нравится работать в команде и я постоянно ищу новые вызовы, чтобы улучшить свои навыки. Я мотивирован и трудолюбив.`,
       about_experience: `Четыре месяца я работал фрилансером. В этой роли я в основном сосредоточился на преобразовании дизайна из Figma или PSD в HTML/CSS и интеграции их в существующие веб-сайты. Я также разрабатывал новые компоненты и добавлял дополнительный функционал на страницах обычных сайтов и также сайтов под управлением CMS Wordpress. Кроме того, у меня есть опыт интеграции верстки HTML/CSS в  Wordpress.`,
       about_name: "Андрей Х.",
       about_spec: "Junior Front-End Developer",
       about_aboutme_title: "Обо мне",
       about_experience_title: "Опыт",
+      about_contacts_title: "Контакты",
       about_skills: "Навыки",
       about_skills_main: "Основные",
       about_skills_secondary: "Ознакомлен",

@@ -23,6 +23,9 @@ div(class="aboutContainer")
                 p(class="skill" v-for="main in skillsMain") {{ main }}
                 h4 {{ $t('about_skills_secondary') }}:
                 p(class="skill skillSecondary" v-for="secondary in skillsSecondary") {{ secondary }}
+        div(class="aboutMe")
+            h3 {{ $t('about_contacts_title') }}
+            Contacts
     div(class="downloadButtonContainer")
         UIButtonsButton(
             :hover-fill="'var(--button-secondary)'"

@@ -27,8 +27,8 @@ definePageMeta({
     color: var(--text-secondary)
     text-align: center
     text-transform: uppercase
-    padding-top: toRem(120)
-    padding-bottom: toRem(90)
+    padding-top: toRem(100)
+    padding-bottom: toRem(50)
     margin: 0
 .projects
   display: flex

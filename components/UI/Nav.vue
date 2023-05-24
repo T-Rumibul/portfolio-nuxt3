@@ -14,10 +14,6 @@ nav(class="nav")
             NuxtLink(to="/portfolio" @click="isActive = !isActive")
                 NuxtIcon(class="navIcon" name="portfolio" :filled="true")
                 span Portfolio
-        li
-            NuxtLink(to="/contacts" @click="isActive = !isActive")
-                NuxtIcon(class="navIcon" name="chat" :filled="true")
-                span Contacts
         li(class="langSwitch")
             UIButtonsLangSwitch
 </template>
@@ -43,7 +39,7 @@ onMounted(() => {
 .nav-list
     display: flex
     flex-direction: column
-    align-items: start
+    align-items: flex-start
     background-color: var(--nav-background)
     padding: toRem(25) toRem(15)
     border-radius: 0 0 5px 5px
@@ -86,9 +82,9 @@ a:hover
 
 .nav-list_active
         visibility: visible
-        height: toRem(164)
+        height: toRem(124)
         @media (max-width: toRem(400))
-            height: toRem(230)
+            height: toRem(200)
         span
             right: toRem(-125)
             visibility: visible
