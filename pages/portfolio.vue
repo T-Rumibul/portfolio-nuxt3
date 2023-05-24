@@ -21,13 +21,12 @@ definePageMeta({
 
 <style lang="sass" scoped>
 .portfolio
-
   min-height: 100vh
   h1
     color: var(--text-secondary)
     text-align: center
     text-transform: uppercase
-    padding-top: toRem(100)
+    padding-top: toRem(80)
     padding-bottom: toRem(50)
     margin: 0
 .projects

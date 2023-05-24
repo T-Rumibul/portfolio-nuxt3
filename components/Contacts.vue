@@ -39,6 +39,9 @@ div(class="contactsList")
             padding-left: toRem(10)
             overflow: hidden
             text-overflow: ellipsis
+            @media(max-width: toRem(400))
+                width: 100%
+                padding: 0
         a:hover
             color: var(--text-primary)
 </style>

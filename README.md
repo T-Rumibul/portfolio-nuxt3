@@ -1,6 +1,9 @@
-# Nuxt 3 Minimal Starter
+[![License][license-src]][license-href]
+[![Nuxt][nuxt-src]][nuxt-href]
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Description
+
+I created this website for personal use as a portfolio using Nuxt 3. You can use this as a template, just replace the text and photo/CV with your own.
 
 ## Setup
 
@@ -40,3 +43,8 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+[license-src]: https://img.shields.io/github/license/nuxt-modules/icon.svg?style=flat&colorA=18181B&colorB=28CF8D
+[license-href]: https://github.com/RynerNO/portfolio-v2/blob/main/LICENSE
+[nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
+[nuxt-href]: https://nuxt.com
