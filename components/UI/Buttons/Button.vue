@@ -1,7 +1,7 @@
 <template lang="pug">
 div(v-if="to")
     NuxtLink(:to="to" class="button"
-    :style="buttonStyles")
+    :style="buttonStyles" :target="target" )
         NuxtIcon(v-if="iconName" :name="iconName" class="nuxtIcon" :filled="true")
         span
             slot
@@ -32,6 +32,7 @@ const props = withDefaults(defineProps<Button>(), {
   textUpperCase: true,
   textWeight: 500,
   minWidth: 0,
+  target: "",
 });
 const buttonStyles = ref();
 const computeButtonStyles = () => {

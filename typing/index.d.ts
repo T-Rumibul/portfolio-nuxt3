@@ -9,6 +9,7 @@ export interface DynamicText {
 }
 
 export interface Project {
+  _id: string;
   title: string;
   link: string;
   git: string;
@@ -31,4 +32,5 @@ export interface Button {
   textUpperCase?: boolean;
   download?: string;
   minWidth?: number;
+  target?: string;
 }

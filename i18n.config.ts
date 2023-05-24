@@ -34,6 +34,7 @@ export default defineI18nConfig(() => ({
       about_languages: "Languages",
       about_download: "Download CV",
       portfolio_title: "My Portfolio",
+      project_button: "Open",
     },
     ru: {
       home_hello: "Привет!",
@@ -55,6 +56,7 @@ export default defineI18nConfig(() => ({
       about_languages: "Языки",
       about_download: "Скачать резюме",
       portfolio_title: "Портфолио",
+      project_button: "Открыть",
     },
   },
 }));

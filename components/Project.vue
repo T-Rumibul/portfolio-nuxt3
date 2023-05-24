@@ -6,7 +6,7 @@ div(class="project")
     div(class="project__image")
         img(:src="image" alt="Project preview image")
     div(class="project__hover")
-        UIButtonsButton(class="project__button") Preview
+        UIButtonsButton(:to="link" :target="'_blank'") {{ $t('project_button') }}
 </template>
 
 <script setup lang="ts">
@@ -90,6 +90,4 @@ const props = defineProps<Project>();
         opacity: 1
         visibility: visible
         transition: opacity 0.3s
-
-.project__button
 </style>
