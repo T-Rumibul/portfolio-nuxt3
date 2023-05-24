@@ -1,5 +1,7 @@
 <template lang="pug">
 div.container
+    Head
+        Title Junior Front-End Developer 
     PtsAnimatedLines(class="animated-background")
     div.text-container
         p {{ $t('home_hello') }}

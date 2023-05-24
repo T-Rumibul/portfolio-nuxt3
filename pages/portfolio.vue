@@ -1,5 +1,7 @@
 <template lang="pug">
 div.portfolio
+    Head
+      Title Portfolio | Junior Front-End Developer
     h1 {{ $t('portfolio_title') }}
     div(class="projects")
       Project(v-for="project in projects" :="project")

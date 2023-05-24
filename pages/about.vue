@@ -1,5 +1,7 @@
 <template lang="pug">
 div(class="aboutContainer")
+    Head
+        Title About Me | Junior Front-End Developer
     div(class="photoCredentialsContainer")
         picture(class="photo")
             source(srcset="~assets/images/photo.webp"

@@ -1,3 +1,3 @@
 import { ChooseSlideSide } from "./ChooseSlideSide";
-
-export { ChooseSlideSide };
+import { HexToRgb } from "./HexToRgb";
+export { ChooseSlideSide, HexToRgb };

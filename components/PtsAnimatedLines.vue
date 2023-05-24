@@ -4,7 +4,7 @@ div#pts
 
 <script setup lang="ts">
 import { CanvasSpace, Group, Pt, Const, Line } from "pts";
-
+import { HexToRgb } from "~/helpers";
 // Function to generate a new group of points
 const generateANewGroupOfPts = (count: number, space: CanvasSpace) => {
   const pts = new Group();
@@ -18,7 +18,7 @@ const generateANewGroupOfPts = (count: number, space: CanvasSpace) => {
       Math.random() * space.size.y - Math.random() * space.size.y
     );
     pts.push(p);
-    pointBrightness.push(0.1);
+    pointBrightness.push(0.5);
   }
 
   // Move points to the center of the space
@@ -58,19 +58,19 @@ onMounted(() => {
         const ln = [pt, Line.perpendicularFromPt(line, pt)];
         const distFromMouse = Math.abs(Line.distanceFromPt(ln, mouse));
 
+        const rgb = HexToRgb(colors[i % 3]);
+        let color = `rgba(${rgb?.r}, ${rgb?.g}, ${rgb?.b}, ${ptsAndBrightness.pointBrightness[i]})`;
         // Adjust point brightness based on distance from the mouse
         if (distFromMouse < 50) {
-          ptsAndBrightness.pointBrightness[i] += 0.5;
-        } else if (ptsAndBrightness.pointBrightness[i] > 0.1) {
-          ptsAndBrightness.pointBrightness[i] -= 0.25;
+          ptsAndBrightness.pointBrightness[i] += 0.3;
+          color = `rgba(255, 255, 255, ${ptsAndBrightness.pointBrightness[i]})`;
+        } else if (ptsAndBrightness.pointBrightness[i] > 0.5) {
+          ptsAndBrightness.pointBrightness[i] -= 0.1;
         }
 
         // Draw the points and lines
-        form
-          .fill(dotColor)
-          .point(pt, 2, "circle")
-          .fillOnly(colors[i % 3]);
-        const color = `rgba(255, 255, 255, ${ptsAndBrightness.pointBrightness[i]})`;
+        form.fill(dotColor).point(pt, 2, "circle");
+
         form.strokeOnly(color).fill(true).line(ln);
       });
     },
