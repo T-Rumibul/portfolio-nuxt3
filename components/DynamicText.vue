@@ -1,12 +1,18 @@
 <template lang="pug">
+
 span {{ dynamicText  }}
+
 </template>
 <script setup lang="ts">
+
 import { DynamicText } from "@/typing";
+
 const { t, locale } = useI18n();
+
 const props = withDefaults(defineProps<DynamicText>(), {
   speed: 80,
 });
+
 const dynamicText = ref<string>("");
 
 const emptyingdynamicText = () => {
@@ -23,6 +29,7 @@ const emptyingdynamicText = () => {
     }, props.speed);
   });
 };
+
 const getText = () => {
   const text = [];
   for (let txt of props.text) {
@@ -37,6 +44,7 @@ const filldynamicText = () => {
   let textIndex = 0;
   let letterIndex = 0;
   let isPaused = false;
+
   setInterval(() => {
     const text = getText();
     if (currentLocale !== locale.value) {
@@ -48,6 +56,7 @@ const filldynamicText = () => {
       isPaused = false;
       return;
     }
+
     if (isPaused) return;
 
     if (letterIndex > text[textIndex].length) {
@@ -70,6 +79,7 @@ const filldynamicText = () => {
 onMounted(() => {
   filldynamicText();
 });
+
 </script>
 
 <style lang="sass" scoped></style>

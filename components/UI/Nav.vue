@@ -1,27 +1,36 @@
 <template lang="pug">
 nav(class="nav")
     UIButtonsBurger(:isActive="isActive" @click="isActive = !isActive")
+
     ul(:class="isActive ? 'nav-list_active' : ''" class="nav-list")
+
         li(class="active_page")
             NuxtLink(:to="path('/')"  @click="isActive = !isActive")
                 NuxtIcon(class="navIcon" name="home" :filled="true")
                 span {{ $t('nav_home') }}
+
         li
             NuxtLink(:to="path('about')" @click="isActive = !isActive")
                 NuxtIcon(class="navIcon" name="user" :filled="true")
                 span {{ $t('nav_about') }}
+
         li
             NuxtLink(:to="path('portfolio')" @click="isActive = !isActive")
                 NuxtIcon(class="navIcon" name="portfolio" :filled="true")
                 span {{ $t('nav_portfolio') }}
+
         li(class="langSwitch")
             UIButtonsLangSwitch
 </template>
 
 <script setup lang="ts">
+
 let isActive = ref(false);
+
 const path = useLocalePath();
+
 onMounted(() => {
+
   document.addEventListener("click", (event) => {
     const target = event.target;
     if (!target) return;
@@ -83,12 +92,15 @@ a:hover
 .nav-list_active
         visibility: visible
         height: toRem(115)
+
         @media (max-width: toRem(400))
             height: toRem(180)
+
         span
             right: toRem(-125)
             visibility: visible
 .router-link-active
+
     &::before
         content: ''
         width: toRem(5)
@@ -97,10 +109,12 @@ a:hover
         position: absolute
         left: toRem(-15)
         top: toRem(-5)
+
     span:nth-child(2)
         color: var(--nav-active)
 </style>
 <style lang="sass">
+
 .navIcon
     svg
         fill: var(--nav-icon-primary)
@@ -108,6 +122,7 @@ a:hover
         height: toRem(16)
         display: block
         opacity: 0.6
+
 a:hover
     .navIcon
         svg
@@ -116,12 +131,14 @@ a:hover
 
 
 .router-link-active
+    
     .navIcon
         svg
             fill: var(--nav-icon-active)
             opacity: 1
 .langSwitch
     display: none
+
     @media (max-width: toRem(400))
         display: flex
         justify-content: center

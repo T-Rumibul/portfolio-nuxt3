@@ -5,6 +5,7 @@ div#pts
 <script setup lang="ts">
 import { CanvasSpace, Group, Pt, Const, Line } from "pts";
 import { HexToRgb } from "~/helpers";
+
 // Function to generate a new group of points
 const generateANewGroupOfPts = (count: number, space: CanvasSpace) => {
   const pts = new Group();
@@ -28,15 +29,18 @@ const generateANewGroupOfPts = (count: number, space: CanvasSpace) => {
 
 // Execute code when mounted
 onMounted(() => {
+
   const colors = ["#2196F3", "#FF5D56", "#FF00FF", "#9ACD32"];
   const dotColor = "#c2c2c2";
   const backgroundColor = "#111217";
+
   // Create a canvas space
   const space = new CanvasSpace("#pts").setup({
     bgcolor: backgroundColor,
     resize: true,
     retina: true,
   });
+
   const form = space.getForm();
   let ptsAndBrightness = generateANewGroupOfPts(55, space);
 
@@ -60,6 +64,7 @@ onMounted(() => {
 
         const rgb = HexToRgb(colors[i % 3]);
         let color = `rgba(${rgb?.r}, ${rgb?.g}, ${rgb?.b}, ${ptsAndBrightness.pointBrightness[i]})`;
+        
         // Adjust point brightness based on distance from the mouse
         if (distFromMouse < 50) {
           ptsAndBrightness.pointBrightness[i] += 0.3;

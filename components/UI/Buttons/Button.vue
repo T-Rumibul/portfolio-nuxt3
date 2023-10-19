@@ -35,8 +35,10 @@ const props = withDefaults(defineProps<Button>(), {
   target: "",
   external: false,
 });
+
 const path = useLocalePath();
 const buttonStyles = ref();
+
 const computeButtonStyles = () => {
   const styles = `
         --background-color: ${props.buttonBg};
@@ -79,10 +81,12 @@ computeButtonStyles();
     align-items: center
     justify-content: center
     cursor: pointer
+
     span
         position: relative
         font-size: var(--text-size)
         z-index: 5
+
     &::before
         content: ""
         position: absolute
@@ -94,10 +98,13 @@ computeButtonStyles();
         transition-duration: .6s
         transform: skew(-22deg)
         background-color: var(--hover-fill)
+
     &:hover
         border-color: var(--hover-fill)
+
         &::before
             width: 180%
+            
 </style>
 <style lang="sass">
 .nuxtIcon

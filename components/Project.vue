@@ -1,12 +1,16 @@
 <template lang="pug">
 div(class="project")
+
     div(class="project__bar")
         h2 {{ title }}
         i
+
     div(class="project__image")
         img(:src="image" alt="Project preview image")
+
     div(class="project__hover")
         UIButtonsButton(:to="link" :external="true" :target="'_blank'") {{ $t('project_button') }}
+
 </template>
 
 <script setup lang="ts">
@@ -32,8 +36,10 @@ const props = defineProps<Project>();
     box-shadow: 8px 8px 0px rgb(175 171 171 / 7%)
     border-radius: 0px 0px 8px 8px
     width: toRem(350)
+
     @media(min-width: toRem(1440))
         width: toRem(400)
+
     @media (max-width: toRem(400))
         width: toRem(300)
         margin: 0 toRem(10)
@@ -48,6 +54,7 @@ const props = defineProps<Project>();
     flex-direction: column
     justify-content: center
     border-radius: 8px 8px 0px 0px
+
     i
       +circle
       align-self: start
@@ -65,19 +72,25 @@ const props = defineProps<Project>();
         left: toRem(32)
         background-color: #28ca41
         top: 0
+
 .project__bar h2
     font-size: toRem(16)
     text-align: center
+
 .project__image
     height: toRem(187)
+
     @media(min-width: toRem(1440))
         height: toRem(220)
+
     @media (max-width: toRem(400))
         height: toRem(150)
+
     img
         width: 100%
         height: 100%
         object-fit: fill
+        
 .project__hover
     position: absolute
     top: 0
