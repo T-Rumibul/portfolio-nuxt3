@@ -9,7 +9,7 @@
   "home_link_about": "My Resume",
   "home_dynamic_text": ["Andrey", "a web developer."],
   "about_aboutme": "My name is Andrey, I'm originally from Ukraine. Currently, I reside in Wrocław, Poland, and I am open to relocation. I am a developer with a deep interest in web development, dedicated to continuous learning and growth in this field. My strengths include attention to detail and the ability to solve a variety of tasks.",
-  "about_experience": "I am an experienced freelance Front-End Developer with a strong focus on translating design concepts from software like Figma or Photoshop (PSD) into fully functional HTML and CSS. You can find some examples of my work",
+  "about_experience": "Primarily, my expertise lies in JavaScript and TypeScript development within the Node.js environment. I am proficient in leveraging Docker for the creation, deployment, and execution of applications encapsulated within containers. Additionally, I am adept at using Git for version control. My technical skills encompass a wide range of technologies and frameworks, including HTML, CSS, JS, TS, SCSS, Pug, Bootstrap 5, Vue, Nuxt, and Express. This diverse skill set enables me to deliver robust and efficient solutions tailored to specific project requirements. You can find some examples of my work",
   "about_exprerience_link": "here",
   "about_name": "Andrey K.",
   "about_spec": "Junior Front-End Developer",

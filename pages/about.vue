@@ -40,7 +40,7 @@ div(class="aboutContainer")
         UIButtonsButton(
             :hover-fill="'var(--button-secondary)'"
             :bg="'var(--button-primary)'"
-            :download="'https://cdn.discordapp.com/attachments/716045712583950376/1175535218543833169/cv_5.pdf'"
+            :download="'https://cdn.discordapp.com/attachments/716045712583950376/1197921423734341732/CV.pdf'"
             :min-width="200"
             ) {{ $t('about_download') }}
 
