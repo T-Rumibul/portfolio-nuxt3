@@ -4,12 +4,13 @@ div
         Link( sizes="16x16" rel="icon" href="/icons8-system-information-16.ico")
         Link( sizes="32x32" rel="icon" href="/icons8-system-information-32.ico")
         Link( sizes="96x96" rel="icon" href="/icons8-system-information-96.ico")
-    UINav(class="nav")
+    UINav(class="nav" v-if="!$route.name.startsWith('index')")
     UIButtonsLangSwitch(class="localization")
     slot
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>
 
 <style lang="sass" scoped>
 .nav
