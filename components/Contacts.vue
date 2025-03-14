@@ -1,24 +1,14 @@
 <template lang="pug">
 div(class="contactsList")
     p 
-        NuxtIcon(name="telegram" class="nuxtIcon" :filled="true") 
-        span Telegram:  
-        NuxtLink(href="https://t.me/ryner_n" target="_blank")  https://t.me/ryner_n
-
-    p  
-        NuxtIcon(name="linkedin" class="nuxtIcon" :filled="true") 
-        span LinkedIn: 
-        NuxtLink(href="https://www.linkedin.com/in/andreyk000/" target="_blank")  https://www.linkedin.com/in/andreyk000/
-
-    p 
         NuxtIcon(name="github" class="nuxtIcon" :filled="true") 
         span GitHub:  
-        NuxtLink(href="https://github.com/RynerNO" target="_blank")  https://github.com/RynerNO
+        NuxtLink(href="https://github.com/T-Rumibul" target="_blank")  https://github.com/T-Rumibul
 
     p 
         NuxtIcon(name="email" class="nuxtIcon" :filled="true") 
         span Email:  
-        NuxtLink(to="mailto:ryner.work@gmail.com" target="_blank")  ryner.work@gmail.com
+        NuxtLink(to="mailto:andr.k.work@gmail.com" target="_blank")  andr.k.work@gmail.com
 
 </template>
 

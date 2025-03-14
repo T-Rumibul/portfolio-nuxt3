@@ -15,10 +15,6 @@ div(class="aboutContainer")
 
     div(class="aboutMeContainer")
         div(class="aboutMe")
-            h3 {{ $t("about_aboutme_title") }}
-            p {{ $t("about_aboutme") }}
-
-        div(class="aboutMe")
             h3 {{ $t('about_experience_title') }}
             p {{ $t("about_experience") }} 
                 NuxtLink(:to="path('portfolio')") {{ $t('about_exprerience_link') }}
@@ -35,15 +31,6 @@ div(class="aboutContainer")
         div(class="aboutMe")
             h3 {{ $t('about_contacts_title') }}
             Contacts
-
-    div(class="downloadButtonContainer")
-        UIButtonsButton(
-            :hover-fill="'var(--button-secondary)'"
-            :bg="'var(--button-primary)'"
-            :download="'https://drive.google.com/uc?export=download&id=1iAf1b8sDYgrEO37M9QWpVUPiewZTGyuw'"
-            :min-width="200"
-            ) {{ $t('about_download') }}
-
 </template>
 
 <script setup lang="ts">
