@@ -1,28 +1,5 @@
 User-agent: *
 Disallow: /cv.pdf
 Disallow: /_nuxt
-Disallow: /
+Disallow: /about
 
-User-agent: Bingbot
-Disallow: /cv.pdf
-Disallow: /_nuxt
-Disallow: /
-
-User-agent: Slurp
-Disallow: /cv.pdf
-Disallow: /_nuxt
-Disallow: /
-
-User-agent: Googlebot
-Disallow: /cv.pdf
-Disallow: /_nuxt
-Disallow: /
-
-User-agent: Yandex
-Disallow: /cv.pdf
-Disallow: /_nuxt
-Disallow: /
-
-User-agent: JoobleBot
-Disallow:/
-Disallow: /_nuxt

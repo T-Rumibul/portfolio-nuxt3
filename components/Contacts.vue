@@ -4,12 +4,6 @@ div(class="contactsList")
         NuxtIcon(name="github" class="nuxtIcon" :filled="true") 
         span GitHub:  
         NuxtLink(href="https://github.com/T-Rumibul" target="_blank")  https://github.com/T-Rumibul
-
-    p 
-        NuxtIcon(name="email" class="nuxtIcon" :filled="true") 
-        span Email:  
-        NuxtLink(to="mailto:andr.k.work@gmail.com" target="_blank")  andr.k.work@gmail.com
-
 </template>
 
 <script setup lang="ts"></script>
