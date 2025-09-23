@@ -1,7 +1,5 @@
-<template lang="pug">
-
-span {{ dynamicText  }}
-
+<template>
+  <span>{{ dynamicText }}</span>
 </template>
 <script setup lang="ts">
 

@@ -1,16 +1,20 @@
-<template lang="pug">
-div(class="project")
+<template>
+  <div class="project">
+    <div class="project__bar">
+      <h2>{{ title }}</h2>
+      <i></i>
+    </div>
 
-    div(class="project__bar")
-        h2 {{ title }}
-        i
+    <div class="project__image">
+      <img :src="image" alt="Project preview image" />
+    </div>
 
-    div(class="project__image")
-        img(:src="image" alt="Project preview image")
-
-    div(class="project__hover")
-        UIButtonsButton(:to="link" :external="true" :target="'_blank'") {{ $t('project_button') }}
-
+    <div class="project__hover">
+      <UIButtonsButton :to="link" :external="true" :target="'_blank'">
+        {{ $t('project_button') }}
+      </UIButtonsButton>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

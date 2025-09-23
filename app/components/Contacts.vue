@@ -1,9 +1,13 @@
-<template lang="pug">
-div(class="contactsList")
-    p 
-        NuxtIcon(name="github" class="nuxtIcon" :filled="true") 
-        span GitHub:  
-        NuxtLink(href="https://github.com/T-Rumibul" target="_blank")  https://github.com/T-Rumibul
+<template>
+  <div class="contactsList">
+    <p>
+      <NuxtIcon name="github" class="nuxtIcon" :filled="true" />
+      <span>GitHub:</span>
+      <NuxtLink href="https://github.com/T-Rumibul" target="_blank">
+        https://github.com/T-Rumibul
+      </NuxtLink>
+    </p>
+  </div>
 </template>
 
 <script setup lang="ts"></script>

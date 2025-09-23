@@ -1,12 +1,14 @@
-<template lang="pug">
-div
-    Head
-        Link( sizes="16x16" rel="icon" href="/icons8-system-information-16.ico")
-        Link( sizes="32x32" rel="icon" href="/icons8-system-information-32.ico")
-        Link( sizes="96x96" rel="icon" href="/icons8-system-information-96.ico")
-    UINav(class="nav")
-    UIButtonsLangSwitch(class="localization")
-    slot
+<template>
+  <div>
+    <Head>
+      <Link sizes="16x16" rel="icon" href="/icons8-system-information-16.ico" />
+      <Link sizes="32x32" rel="icon" href="/icons8-system-information-32.ico" />
+      <Link sizes="96x96" rel="icon" href="/icons8-system-information-96.ico" />
+    </Head>
+    <UINav class="nav" />
+    <UIButtonsLangSwitch class="localization" />
+    <slot />
+  </div>
 </template>
 
 <script setup lang="ts">

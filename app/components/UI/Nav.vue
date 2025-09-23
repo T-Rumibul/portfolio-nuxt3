@@ -1,26 +1,34 @@
-<template lang="pug">
-nav(class="nav")
-    UIButtonsBurger(:isActive="isActive" @click="isActive = !isActive")
+<template>
+  <nav class="nav">
+    <UIButtonsBurger :isActive="isActive" @click="isActive = !isActive" />
 
-    ul(:class="isActive ? 'nav-list_active' : ''" class="nav-list")
+    <ul :class="isActive ? 'nav-list_active' : ''" class="nav-list">
+      <li class="active_page">
+        <NuxtLink :to="path('/')" @click="isActive = !isActive">
+          <NuxtIcon class="navIcon" name="home" :filled="true" />
+          <span>{{ $t('nav_home') }}</span>
+        </NuxtLink>
+      </li>
 
-        li(class="active_page")
-            NuxtLink(:to="path('/')"  @click="isActive = !isActive")
-                NuxtIcon(class="navIcon" name="home" :filled="true")
-                span {{ $t('nav_home') }}
+      <li>
+        <NuxtLink :to="path('about')" @click="isActive = !isActive">
+          <NuxtIcon class="navIcon" name="user" :filled="true" />
+          <span>{{ $t('nav_about') }}</span>
+        </NuxtLink>
+      </li>
 
-        li
-            NuxtLink(:to="path('about')" @click="isActive = !isActive")
-                NuxtIcon(class="navIcon" name="user" :filled="true")
-                span {{ $t('nav_about') }}
+      <li>
+        <NuxtLink :to="path('portfolio')" @click="isActive = !isActive">
+          <NuxtIcon class="navIcon" name="portfolio" :filled="true" />
+          <span>{{ $t('nav_portfolio') }}</span>
+        </NuxtLink>
+      </li>
 
-        li
-            NuxtLink(:to="path('portfolio')" @click="isActive = !isActive")
-                NuxtIcon(class="navIcon" name="portfolio" :filled="true")
-                span {{ $t('nav_portfolio') }}
-
-        li(class="langSwitch")
-            UIButtonsLangSwitch
+      <li class="langSwitch">
+        <UIButtonsLangSwitch />
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script setup lang="ts">

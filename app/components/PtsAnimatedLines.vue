@@ -1,5 +1,5 @@
-<template lang="pug">
-div#pts
+<template>
+  <div id="pts"></div>
 </template>
 
 <script setup lang="ts">

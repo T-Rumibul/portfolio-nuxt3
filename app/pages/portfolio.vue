@@ -1,17 +1,17 @@
-<template lang="pug">
+<template>
+  <div class="portfolio">
+    <Head>
+      <Title>Portfolio | Junior Front-End Developer</Title>
+    </Head>
 
-div.portfolio
+    <h1>{{ $t('portfolio_title') }}</h1>
 
-    Head
-      Title Portfolio | Junior Front-End Developer
+    <LoadingCircle v-if="!projects" class="loading" />
 
-    h1 {{ $t('portfolio_title') }}
-
-    LoadingCircle(v-if="!projects" class="loading")
-
-    div(class="projects")
-      Project(v-for="project in projects" :="project")
-
+    <div class="projects">
+      <Project v-for="project in projects" v-bind="project" />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -1,36 +1,48 @@
-<template lang="pug">
-div.container
+<template>
+  <div class="container">
+    <Head>
+      <Title>Junior Front-End Developer</Title>
+    </Head>
 
-    Head
-        Title Junior Front-End Developer 
+    <PtsAnimatedLines class="animated-background" v-if="renderAnimation" />
 
-    PtsAnimatedLines(class="animated-background" v-if="renderAnimation")
+    <div class="text-container">
+      <p>{{ $t('home_hello') }}</p>
 
-    div.text-container
-        p {{ $t('home_hello') }}
+      <h1>
+        {{ $t('home_im') }} 
+        <DynamicText :text="dynamicText" :speed="100" class="dynamic-text" />
+      </h1>
 
-        h1 {{ $t('home_im') }} 
-            DynamicText(:text="dynamicText" :speed="100" class="dynamic-text")
+      <div class="learnMore">
+        <span>{{ $t("home_more") }}</span>
+      </div>
+      
+      <div class="button-container">
+        <UIButtonsButton
+          :to="'/about'"
+          :hover-fill="'var(--button-secondary)'"
+          :button-bg="'#2196f3'"
+          :icon-name="'user'"
+          :icon-size="20"
+          :min-width="200"
+        >
+          {{ $t('home_link_about') }}
+        </UIButtonsButton>
 
-        div(class="learnMore")
-            span {{ $t("home_more")}}
-            
-        div.button-container
-            UIButtonsButton(:to="'/about'"
-            :hover-fill="'var(--button-secondary)'"
-            :button-bg="'#2196f3'"
-            :icon-name="'user'"
-            :icon-size="20"
-            :min-width="200"
-            ) {{ $t('home_link_about') }}
-
-            UIButtonsButton(:to="'/portfolio'" 
-            :hover-fill="'var(--button-primary)'"
-            :button-bg="'transparent'"
-            :icon-name="'portfolio'"
-            :icon-size="20"
-            :min-width="200"
-            ) {{ $t('home_link_portfolio') }}
+        <UIButtonsButton
+          :to="'/portfolio'" 
+          :hover-fill="'var(--button-primary)'"
+          :button-bg="'transparent'"
+          :icon-name="'portfolio'"
+          :icon-size="20"
+          :min-width="200"
+        >
+          {{ $t('home_link_portfolio') }}
+        </UIButtonsButton>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

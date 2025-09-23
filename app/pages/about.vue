@@ -1,36 +1,47 @@
-<template lang="pug">
-div(class="aboutContainer")
-    Head
-        Title About Me | Junior Front-End Developer
+<template>
+  <div class="aboutContainer">
+    <Head>
+      <Title>About Me | Junior Front-End Developer</Title>
+    </Head>
 
-    div(class="photoCredentialsContainer")
-        picture(class="photo")
-            source(srcset="~assets/images/photo.webp"
-            type="image/webp")
-            source(srcset="~assets/images/photo.jpg" type="image/png")
-            img(src="~assets/images/photo.jpg" alt="photo")
-        div(class="credentials")
-            h1 {{ $t("about_name") }}
-            h2 {{ $t("about_spec") }}
+    <div class="photoCredentialsContainer">
+      <picture class="photo">
+        <source srcset="~assets/images/photo.webp" type="image/webp" />
+        <source srcset="~assets/images/photo.jpg" type="image/png" />
+        <img src="~assets/images/photo.jpg" alt="photo" />
+      </picture>
+      <div class="credentials">
+        <h1>{{ $t("about_name") }}</h1>
+        <h2>{{ $t("about_spec") }}</h2>
+      </div>
+    </div>
 
-    div(class="aboutMeContainer")
-        div(class="aboutMe")
-            h3 {{ $t('about_experience_title') }}
-            p {{ $t("about_experience") }} 
-                NuxtLink(:to="path('portfolio')") {{ $t('about_exprerience_link') }}
+    <div class="aboutMeContainer">
+      <div class="aboutMe">
+        <h3>{{ $t('about_experience_title') }}</h3>
+        <p>
+          {{ $t("about_experience") }} 
+          <NuxtLink :to="path('portfolio')">{{ $t('about_exprerience_link') }}</NuxtLink>
+        </p>
+      </div>
 
-        div(class="aboutMe")
-            h3 {{ $t('about_skills') }}
+      <div class="aboutMe">
+        <h3>{{ $t('about_skills') }}</h3>
 
-            div(class="skillsContainer")
-                h4 {{ $t('about_skills_main') }}:
-                p(class="skill" v-for="main in skillsMain") {{ main }}
-                h4 {{ $t('about_skills_secondary') }}:
-                p(class="skill skillSecondary" v-for="secondary in skillsSecondary") {{ secondary }}
+        <div class="skillsContainer">
+          <h4>{{ $t('about_skills_main') }}:</h4>
+          <p class="skill" v-for="main in skillsMain">{{ main }}</p>
+          <h4>{{ $t('about_skills_secondary') }}:</h4>
+          <p class="skill skillSecondary" v-for="secondary in skillsSecondary">{{ secondary }}</p>
+        </div>
+      </div>
 
-        div(class="aboutMe")
-            h3 {{ $t('about_contacts_title') }}
-            Contacts
+      <div class="aboutMe">
+        <h3>{{ $t('about_contacts_title') }}</h3>
+        <Contacts />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

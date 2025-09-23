@@ -1,15 +1,16 @@
-<template lang="pug">
-button(type="button" 
+<template>
+  <button 
+    type="button" 
     title="navigation" 
     class="button" 
     :class="isActive ? 'button_active' : ''"
     @click="isActive = !isActive"
-    )
-        i
-        i
-        i
-
-        </template>
+  >
+    <i></i>
+    <i></i>
+    <i></i>
+  </button>
+</template>
 
 <script setup lang="ts">
 type props = { isActive: boolean };

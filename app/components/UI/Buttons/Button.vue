@@ -1,23 +1,35 @@
-<template lang="pug">
-div(v-if="to")
-    NuxtLink(:to="external ? to : path(to)" class="button"
-    :style="buttonStyles" :target="target" )
-        NuxtIcon(v-if="iconName" :name="iconName" class="nuxtIcon" :filled="true")
-        span
-            slot
+<template>
+  <div v-if="to">
+    <NuxtLink 
+      :to="external ? to : path(to)" 
+      class="button"
+      :style="buttonStyles" 
+      :target="target"
+    >
+      <NuxtIcon v-if="iconName" :name="iconName" class="nuxtIcon" :filled="true" />
+      <span>
+        <slot />
+      </span>
+    </NuxtLink>
+  </div>
 
-div(v-else-if="!download")
-    button(type="button" class="button" :style="buttonStyles")
-        NuxtIcon(v-if="iconName" :name="iconName" class="nuxtIcon" :filled="true")
-        span 
-            slot
-div(v-else-if="download")
-    a(:href="download" download class="button" :style="buttonStyles")
-        NuxtIcon(v-if="iconName" :name="iconName" class="nuxtIcon" :filled="true") 
-        span
-            slot
+  <div v-else-if="!download">
+    <button type="button" class="button" :style="buttonStyles">
+      <NuxtIcon v-if="iconName" :name="iconName" class="nuxtIcon" :filled="true" />
+      <span>
+        <slot />
+      </span>
+    </button>
+  </div>
 
-    
+  <div v-else-if="download">
+    <a :href="download" download class="button" :style="buttonStyles">
+      <NuxtIcon v-if="iconName" :name="iconName" class="nuxtIcon" :filled="true" />
+      <span>
+        <slot />
+      </span>
+    </a>
+  </div>
 </template>
 <script setup lang="ts">
 import type { Button } from "@/typing";

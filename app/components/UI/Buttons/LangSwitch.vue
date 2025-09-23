@@ -1,7 +1,21 @@
-<template lang="pug">
-div
-    NuxtLink(class="button" :class="locale === 'en' ? 'button_active': ''" :to="switchLocalePath('en')") EN
-    NuxtLink(type="button" class="button" :class="locale === 'ru' ? 'button_active': ''" :to="switchLocalePath('ru')") RU
+<template>
+  <div>
+    <NuxtLink 
+      class="button" 
+      :class="locale === 'en' ? 'button_active': ''" 
+      :to="switchLocalePath('en')"
+    >
+      EN
+    </NuxtLink>
+    <NuxtLink 
+      type="button" 
+      class="button" 
+      :class="locale === 'ru' ? 'button_active': ''" 
+      :to="switchLocalePath('ru')"
+    >
+      RU
+    </NuxtLink>
+  </div>
 </template>
 
 <script setup lang="ts">
