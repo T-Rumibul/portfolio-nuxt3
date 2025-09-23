@@ -4,12 +4,8 @@
       <Title>About Me | Junior Front-End Developer</Title>
     </Head>
 
-    <div class="photoCredentialsContainer">
-      <picture class="photo">
-        <source srcset="~assets/images/photo.webp" type="image/webp" />
-        <source srcset="~assets/images/photo.jpg" type="image/png" />
-        <img src="~assets/images/photo.jpg" alt="photo" />
-      </picture>
+    <div class="credentialsContainer">
+      
       <div class="credentials">
         <h1>{{ $t("about_name") }}</h1>
         <h2>{{ $t("about_spec") }}</h2>
@@ -50,8 +46,11 @@ const skillsMain = ref([
   "HTML",
   "CSS",
   "JavaScript",
+  "TypeScript",
   "Node.js",
-  "Vue/Nuxt 3",
+  "Vue/Nuxt",
+  "React.js",
+  "Next.js",
   "Sass",
   "Pug",
   "Docker",
@@ -60,12 +59,11 @@ const skillsMain = ref([
   "Gulp",
 ]);
 const skillsSecondary = ref([
-  "React.js",
-  "TypeScript",
   "Express.js",
   "Mongodb",
   "Electron.js",
   "Wordpress",
+  "SQL"
 ]);
 </script>
 
@@ -78,24 +76,21 @@ const skillsSecondary = ref([
     @media(max-width: toRem(1070))
         margin: 0 toRem(40)
         margin-top: toRem(80)
-.photoCredentialsContainer
+.credentialsContainer
     display: flex
+    justify-content: center
     align-items: center
-    justify-content: center
+    gap: toRem(40)
+    margin-bottom: toRem(50)
 
-    @media(max-width: toRem(650))
-        flex-wrap: wrap
-        text-align: center
-.photo
-    width: toRem(200)
-    height: toRem(200)
-    display: flex
-    justify-content: center
-    border-radius: 9999px
-    overflow: hidden
+    @media(max-width: toRem(600))
+        flex-direction: column
+        margin: 0 toRem(15)
+        margin-top: toRem(80)
+        margin-bottom: toRem(30)
 .credentials
     margin-left: toRem(40)
-
+    text-align: center
     h1
         color: var(--text-primary)
         font-weight: 700
@@ -113,9 +108,12 @@ const skillsSecondary = ref([
     h3
         color: var(--text-secondary)
         text-transform: uppercase
+        padding-bottom: toRem(10)
+        
 
     p
         color: var(--text-primary)
+        padding-bottom: toRem(10)
 .skillsContainer
     display: flex
     gap: toRem(5)
@@ -127,7 +125,7 @@ const skillsSecondary = ref([
         width: 100%
         color: var(--text-primary)
         text-transform: uppercase
-
+        padding: toRem(5) 0
     @media(max-width: toRem(360))
         justify-content: center
 
