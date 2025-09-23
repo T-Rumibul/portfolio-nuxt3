@@ -1,6 +1,6 @@
 {
   "nav_home": "Главная",
-  "nav_about": "Обо мне",
+  "nav_about": "Резюме",
   "nav_portfolio": "Портфолио",
   "home_hello": "Привет!",
   "home_im": "Я",
@@ -12,7 +12,7 @@
   "about_exprerience_link": "ссылке",
   "about_name": "Андрей Х.",
   "about_spec": "Junior Front-End Developer",
-  "about_aboutme_title": "Обо мне",
+  "about_aboutme_title": "Резюме",
   "about_experience_title": "Опыт",
   "about_contacts_title": "Контакты",
   "about_skills": "Навыки",
