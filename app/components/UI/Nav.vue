@@ -99,7 +99,7 @@ a:hover
 
 .nav-list_active
         visibility: visible
-        height: toRem(115)
+        height: toRem(125)
 
         @media (max-width: toRem(400))
             height: toRem(180)
