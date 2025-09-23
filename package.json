@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@nuxtjs/i18n": "^10.1.0",
+    "@nuxtjs/critters": "^0.9.0",
     "@rah-emil/vite-plugin-vue-type-imports": "^0.2.6",
     "@types/node": "^24.5.2",
     "@volar/vue-language-plugin-pug": "^1.6.5",
@@ -19,7 +20,7 @@
     "nuxt": "^4.1.2",
     "nuxt-icons": "^4.0.0",
     "pts": "^0.12.9",
-    "pug": "^3.0.3",
     "sass": "^1.92.1"
+    
   }
 }
