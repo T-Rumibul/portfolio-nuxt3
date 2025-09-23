@@ -15,6 +15,14 @@
     >
       RU
     </NuxtLink>
+     <NuxtLink 
+      type="button" 
+      class="button" 
+      :class="locale === 'uk' ? 'button_active': ''" 
+      :to="switchLocalePath('uk')"
+    >
+      UA
+    </NuxtLink>
   </div>
 </template>
 
@@ -35,7 +43,7 @@ const switchLocalePath = useSwitchLocalePath();
     cursor: pointer
 .button:nth-child(1)
     border-radius: 5px 0px 0px 5px
-.button:nth-child(2)
+.button:nth-child(3)
     border-radius: 0px 5px 5px 0px
 .button_active
     background: var(--button-primary)

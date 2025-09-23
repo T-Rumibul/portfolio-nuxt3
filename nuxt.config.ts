@@ -35,6 +35,11 @@ export default defineNuxtConfig({
         file: "ru-RU.json",
         iso: "ru-RU",
       },
+      {
+        code: "uk",
+        file: "uk-UA.json",
+        iso: "uk-UA",
+      },
     ],
   },
   components: {

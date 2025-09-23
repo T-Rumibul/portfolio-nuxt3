@@ -5,13 +5,21 @@
       <Link sizes="32x32" rel="icon" href="/icons8-system-information-32.ico" />
       <Link sizes="96x96" rel="icon" href="/icons8-system-information-96.ico" />
     </Head>
-    <UINav class="nav" />
-    <UIButtonsLangSwitch class="localization" />
+    <UINav v-if="!isHomePage" class="nav" />
+    <UIButtonsLangSwitch class="localization" :class="{ localization_home: isHomePage }" />
     <slot />
   </div>
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
+const localePath = useLocalePath()
+
+// Check if current route is the home page (considering localization)
+const isHomePage = computed(() => {
+  const homePath = localePath('/')
+  return route.path === homePath
+})
 </script>
 
 <style lang="sass" scoped>
@@ -29,4 +37,6 @@
     z-index: 3
     @media (max-width: toRem(400))
         display: none
+.localization_home
+    display: block
 </style>
