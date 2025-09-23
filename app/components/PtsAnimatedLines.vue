@@ -62,15 +62,15 @@ onMounted(() => {
         const ln = [pt, Line.perpendicularFromPt(line, pt)];
         const distFromMouse = Math.abs(Line.distanceFromPt(ln, mouse));
 
-        const rgb = HexToRgb(colors[i % 3]);
+        const rgb = HexToRgb(colors[i % 3]!);
         let color = `rgba(${rgb?.r}, ${rgb?.g}, ${rgb?.b}, ${ptsAndBrightness.pointBrightness[i]})`;
         
         // Adjust point brightness based on distance from the mouse
         if (distFromMouse < 50) {
-          ptsAndBrightness.pointBrightness[i] += 0.3;
+          ptsAndBrightness.pointBrightness[i]! += 0.3;
           color = `rgba(255, 255, 255, ${ptsAndBrightness.pointBrightness[i]})`;
-        } else if (ptsAndBrightness.pointBrightness[i] > 0.5) {
-          ptsAndBrightness.pointBrightness[i] -= 0.1;
+        } else if (ptsAndBrightness.pointBrightness[i]! > 0.5) {
+          ptsAndBrightness.pointBrightness[i]! -= 0.1;
         }
 
         // Draw the points and lines

@@ -14,7 +14,7 @@ div(class="project")
 </template>
 
 <script setup lang="ts">
-import { Project } from "~/typing";
+import type { Project } from "@/typing";
 
 const props = defineProps<Project>();
 </script>

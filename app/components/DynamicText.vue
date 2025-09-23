@@ -5,7 +5,7 @@ span {{ dynamicText  }}
 </template>
 <script setup lang="ts">
 
-import { DynamicText } from "@/typing";
+import type { DynamicText } from "@/typing";
 
 const { t, locale } = useI18n();
 
@@ -46,6 +46,7 @@ const filldynamicText = () => {
   let isPaused = false;
 
   setInterval(() => {
+    
     const text = getText();
     if (currentLocale !== locale.value) {
       textIndex = 0;
@@ -58,8 +59,10 @@ const filldynamicText = () => {
     }
 
     if (isPaused) return;
-
-    if (letterIndex > text[textIndex].length) {
+    
+    const currentLocaleText = text[textIndex];
+    if (!currentLocaleText) return;
+    if (letterIndex > currentLocaleText.length) {
       isPaused = true;
       textIndex = textIndex == text.length - 1 ? 0 : (textIndex += 1);
       letterIndex = 0;
@@ -70,7 +73,7 @@ const filldynamicText = () => {
       return;
     }
 
-    currentText.push(text[textIndex][letterIndex]);
+    currentText.push(currentLocaleText[letterIndex]!);
     letterIndex += 1;
     dynamicText.value = currentText.join("");
   }, props.speed);

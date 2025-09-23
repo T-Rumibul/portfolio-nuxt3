@@ -1,5 +1,4 @@
-import { WritableComputedRef } from "nuxt/dist/app/compat/capi";
-import { RouteLocationNormalized } from "vue-router";
+import type { RouteLocationNormalized } from "vue-router";
 
 export function ChooseSlideSide(
   to: RouteLocationNormalized,

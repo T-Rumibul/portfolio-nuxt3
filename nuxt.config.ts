@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: "2025-09-19",
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },
@@ -8,7 +9,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         sass: {
-          additionalData: '@import "@/assets/css/global.sass"',
+          additionalData: '@use "@/assets/css/global.sass" as *;',
         },
       },
     },
@@ -21,12 +22,12 @@ export default defineNuxtConfig({
   i18n: {
     defaultLocale: "en",
     strategy: "prefix_except_default",
-    langDir: "assets/locales",
     locales: [
       {
         code: "en",
         file: "en-US.json",
         iso: "en-US",
+      
       },
       {
         code: "ru",

@@ -20,7 +20,7 @@ div(v-else-if="download")
     
 </template>
 <script setup lang="ts">
-import { Button } from "@/typing";
+import type { Button } from "@/typing";
 const props = withDefaults(defineProps<Button>(), {
   buttonBg: "var(--button-primary)",
   hoverFill: "var(--button-secondary)",
