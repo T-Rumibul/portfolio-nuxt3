@@ -18,8 +18,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@rah-emil/vite-plugin-vue-type-imports/nuxt",
     "nuxt-icons",
-    "@nuxtjs/critters",
-    "nuxt-purgecss",
+    "@nuxtjs/critters"
   ],
   i18n: {
     defaultLocale: "en",
