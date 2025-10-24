@@ -15,8 +15,10 @@
 </template>
 
 <script setup lang="ts">
+import type { Project } from '~/typing';
+
 const { data } = useFetch("/api/projects");
-const projects = ref(data);
+const projects = ref(data) as Ref<Project[] | null>;
 </script>
 
 <style lang="sass" scoped>
