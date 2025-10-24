@@ -4,7 +4,7 @@
       <Title>Portfolio | Junior Front-End Developer</Title>
     </Head>
 
-    <h1>{{ $t('portfolio_title') }}</h1>
+    <h1 class="text-4xl font-bold">{{ $t('portfolio_title') }}</h1>
 
     <LoadingCircle v-if="!projects" class="loading" />
 
