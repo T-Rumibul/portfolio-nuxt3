@@ -20,6 +20,12 @@
     "nuxt": "^4.1.2",
     "nuxt-icons": "^4.0.0",
     "pts": "^0.12.9",
-    "sass": "^1.92.1"
+    "sass": "^1.92.1",
+    "@tailwindcss/vite": "^4.1.15",
+    "octokit": "^5.0.4",
+    "tailwindcss": "^4.1.15"
+  },
+  "dependencies": {
+   
   }
 }
