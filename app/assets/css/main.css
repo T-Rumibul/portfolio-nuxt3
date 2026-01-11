@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-base-100: oklch(0.198 0.0254 256.49);  
+  --color-base-200: oklch(0.243 0.024 248.84);  
+  --color-base-300: oklch(0.2775 0.028 255.18);  
+  --color-base-400: oklch(0.2802 0.0146 285.42);
+   --color-base-500: oklch(0.6291 0.0371 243);
+   --color-base-600: oklch(0.7463 0.1274 243.64);
+  /* Text colors */
+  --color-base-content: oklch(0.9702 0 0);   /* primary text */
+  --color-subtle-content: oklch(0.6489 0.0352 249.79); /* secondary text */
+  --color-dim-content: oklch(70% 0.010 250);    
+
+  --color-accent-blue: oklch(65% 0.18 260);
+  --color-accent-purple: oklch(70% 0.14 300);
+  --color-accent-orange: oklch(75% 0.18 70);
+  --color-accent-green: oklch(78% 0.14 145);
+}
+
+body {
+  font-family: "MS";
+  background-color: oklch(11% 0.008 260);
+}
+
+@font-face {
+  font-family: "MS";
+  src: url("~/assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 1 999;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OS";
+  src: url("~/assets/fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype-variations");
+  font-weight: 1 999;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RC";
+  src: url("~/assets/fonts/RobotoCondensed-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RC";
+  src: url("~/assets/fonts/RobotoCondensed-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.2s;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+}
+
+
+

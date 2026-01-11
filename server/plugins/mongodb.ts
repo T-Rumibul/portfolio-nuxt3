@@ -1,11 +1,11 @@
 import * as mongoose from "mongoose";
-import { Nitro } from "nitropack";
+import type { Nitro } from "nitropack";
 export default async (_nitro: Nitro) => {
   try {
     const config = useRuntimeConfig();
-    const connection = await mongoose.connect(process.env.MONGODB_URI || "");
+    const connection = await mongoose.connect(config.MONGODB_URI);
     console.log("Connected to MongoDB");
   } catch (error) {
-    console.log(error);
+    console.log(`Mongodb error:`, error);
   }
 };

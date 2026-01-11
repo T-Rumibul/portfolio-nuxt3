@@ -1,45 +1,28 @@
 <template>
   <div class="portfolio">
-    <Head>
-      <Title>Portfolio | Junior Front-End Developer</Title>
-    </Head>
 
-    <h1 class="text-4xl font-bold">{{ $t('portfolio_title') }}</h1>
+    <h1 class="text-3xl font-bold text-base-content text-center uppercase pt-20 pb-12 m-0">{{ $t('portfolio_title') }}</h1>
 
-    <LoadingCircle v-if="!projects" class="loading" />
+    <PortfolioLoadingCircle v-if="!projects" class="loading" />
 
-    <div class="projects">
-      <Project v-for="project in projects" v-bind="project" />
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6" v-else>
+      <PortfolioProject v-for="project in projects" v-bind="project"/>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { Project } from '~/typing';
+import type { IProject } from '~/../typing';
 
-const { data } = useFetch("/api/projects");
-const projects = ref(data) as Ref<Project[] | null>;
+const projects = ref([]) as Ref<IProject[]>;
+const data = await useProjectsData()
+projects.value = data as IProject[];
 </script>
 
 <style lang="sass" scoped>
 .portfolio
   min-height: 100vh
-
-  h1
-    color: var(--text-secondary)
-    text-align: center
-    text-transform: uppercase
-    padding-top: toRem(80)
-    padding-bottom: toRem(50)
-    margin: 0
-
-.projects
-  display: flex
-  gap: 1rem
-  flex-wrap: wrap
-  justify-content: center
-  max-width: max-content
-  
+    
 .loading
   position: absolute
   top: calc(50% - toRem(58))
