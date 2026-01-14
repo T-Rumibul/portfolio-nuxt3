@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center min-h-screen relative">
+  <div class="flex items-center justify-center min-h-screen relative" v-if="resumeInfo">
 
     <div class="text-base-content max-w-6xl px-6 py-12 relative font-[OS]">
 
@@ -7,8 +7,8 @@
 
         <div class="font-[RC] text-center uppercase overflow-hidden mt-6">
           <motion.h1 ref="titleRef" class="text-3xl font-bold text-base-content">{{
-            aboutInfo.name }}</motion.h1>
-          <motion.h2 class="mt-2 text-2xl tracking-wide text-accent-blue">{{ aboutInfo.position }}
+            resumeInfo[locale].name }}</motion.h1>
+          <motion.h2 class="mt-2 text-2xl tracking-wide text-accent-blue">{{ resumeInfo[locale].position }}
           </motion.h2>
         </div>
       </div>
@@ -20,7 +20,7 @@
             <h3 class="text-lg font-semibold uppercase tracking-widest text-base-content ">{{
               $t('about_experience_title')
             }}</h3>
-            <p class="mt-4 ml-4 text-md text-base-content leading-7" v-html="aboutInfo.description">
+            <p class="mt-4 ml-4 text-md text-base-content leading-7" v-html="resumeInfo[locale].aboutme">
 
             </p>
           </div>
@@ -28,7 +28,7 @@
             p-6 rounded-lg w-full">
             <h3 class="text-lg font-semibold  tracking-widest uppercase text-base-content ">{{
               $t('about_contacts_title') }}</h3>
-            <AboutContacts class="ml-4 mt-4 text-md" v-for="contact in contactsInfo" :key="contact._id"
+            <ResumeContacts class="ml-4 mt-4 text-md" v-for="contact in contactsInfo" :key="contact._id"
               :icon="contact.icon" :name="contact.name" :link="contact.link" />
           </div>
         </div>
@@ -57,7 +57,7 @@
             <h3 class="text-lg font-semibold  tracking-widest uppercase text-base-content ">{{
               $t('about_skills') }}</h3>
 
-            <AboutSkills class=" mt-6 text-md" v-for="skill in skills" v-bind="skill" />
+            <ResumeSkills class=" mt-6 text-md" v-for="skill in skills" v-bind="skill" />
           </div>
         </div>
       </div>
@@ -103,13 +103,8 @@ const { scrollX, scrollY, scrollYProgress } = useScroll({
 const scaleTitle = useTransform(scrollYProgress as any, [0, 1], [1.5, 1])
 const scaleSubtitle = useTransform(scrollYProgress as any, [0, 1], [1, 1.5])
 const t = await useResumeData();
-const aboutInfo = ref(await useAboutData(locale.value));
-watch(locale, async (newLocale) => {
-  const newAboutInfo = await useAboutData(newLocale);
-  aboutInfo.value.name = newAboutInfo.name;
-  aboutInfo.value.position = newAboutInfo.position;
-  aboutInfo.value.description = newAboutInfo.description;
-});
+const resumeInfo = ref(await useResumeData());
+
 const contactsInfo = ref<Array<{ _id: string; name: string; icon: string, link: string }>>([]);
 const skills = ref<ISkillCat[]>([])
 skills.value = await useSkillsData();
