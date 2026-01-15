@@ -43,21 +43,23 @@
 </template>
 
 <script setup lang="ts">
+import type { IIcon } from '~~/typing';
+
 const props = defineProps <{
-    options: Array<{ icon: { name: string, color: string }, value: string }>;
-    selectedOption?: { icon: { name: string, color: string }, value: string };
+    options: Array<{ icon: IIcon, value: string }>;
+    selectedOption?: { icon: IIcon, value: string };
     label?: string;
 }>()
-const selectedOptionModel = defineModel <{ icon?: { name: string, color?: string }, value: string }>();
+const selectedOptionModel = defineModel <{ icon?: IIcon, value: string }>();
 const emit = defineEmits < {
-    (e: 'update:selectedOption', option: { icon: { name: string, color: string }, value: string }): void;
+    (e: 'update:selectedOption', option: { icon: IIcon, value: string }): void;
 }> ();
 const isOpen = ref(false);
 const handleClickOutside = () => {
     isOpen.value = false;
 };
 
-const handleUpdate = (option: { icon: { name: string, color: string }, value: string }) => {
+const handleUpdate = (option: { icon: IIcon, value: string }) => {
     emit('update:selectedOption', option);
     isOpen.value = false;
     selectedOptionModel.value = option;

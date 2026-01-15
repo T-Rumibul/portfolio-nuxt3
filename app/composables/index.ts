@@ -1,11 +1,41 @@
 import type { UseFetchOptions } from "#app"
-import type { IContact, TurnstileScript } from "~/../typing"
+import type { IContact, IProject, IResume, ISkillCategory, TurnstileScript } from "~/../typing"
+export const useResumeState = () => {
+    const state = useState<IResume | null>('resumeData', () => null);
+    if (!state.value) {
+        $fetch('/api/resume/get', {
+            method: 'POST',
+        }).then((response) => {
+            if (response && response.success) {
+                const data = response.result;
+                state.value = data;
+            }
+        });
+
+    }
+    return state;
+}
+export const useProjectsState = () => {
+    const state = useState<IProject[] | null>('projectsData', () => null);
+    if (!state.value) {
+        $fetch('/api/project/get', {
+        method: 'POST',
+    }).then((response) => {
+            if (response && response.success) {
+                const data = response.result;
+                state.value = data;
+            }
+        });
+
+    }
+    return state;
+}
 
 export const useTurnstileScript = () => {
     return useScript(
         {
             src: useRuntimeConfig().public.turnstileScript,
-            
+
         },
         {
             use() {
@@ -14,53 +44,6 @@ export const useTurnstileScript = () => {
             warmupStrategy: 'preload',
             trigger: 'client'
         })
-}
-
-export async function useResumeData() {
-    const response = await $fetch('/api/resume/get', {
-        method: 'POST',
-    });
-    if (response && response.success) {
-        const data = response.result;
-        return data
-    }
-}
-export const useContactsData = async (): Promise<IContact[]> => {
-    const response = await $fetch('/api/contacts/get', {
-        method: 'POST',
-    });
-    if (response && response.statusCode === 200) {
-        const data = response.result;
-        return data as IContact[];
-    }
-    return [];
-}
-
-export const useProjectsData = async () => {
-    const response = await $fetch('/api/project/get', {
-        method: 'POST',
-    });
-    if (response && response.statusCode === 200) {
-        const data = response.result;
-        return data;
-    }
-    return [];
-}
-
-export const useSkillsData = async () => {
-    const response = await $fetch('/api/skills/get', {
-        method: 'POST',
-    });
-    if (response && response.statusCode === 200) {
-        const data = response.result;
-        return data as unknown as {
-            _id: string,
-            icon: { name: string, color: string },
-            name: string,
-            skills: { icon: { name: string, color: string }, name: string }[]
-        }[];
-    }
-    return [];
 }
 
 

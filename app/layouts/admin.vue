@@ -20,9 +20,8 @@ const route = useRoute();
 // const isAuthenticated = ref(false)
 // isAuthenticated.value = await auth.verifyLogin()
 const SIDEBAR_ITEMS = [
+    { name: 'Dashboard', icon: 'mdi:view-dashboard-outline', color: 'text-green-500', route: '/admin/dashboard' },
     { name: 'Resume', icon: 'mdi:post-outline', color: 'text-cyan-500', route: '/admin/resume' },
-    { name: 'Skills', icon: 'mdi:book-education', color: 'text-pink-500', route: '/admin/skills' },
-    { name: 'Contacts', icon: 'mdi:contacts-outline', color: 'text-green-500', route: '/admin/contacts' },
     { name: 'Projects', icon: 'mdi:folder-outline', color: 'text-purple-500', route: '/admin/projects' },
 ];
 

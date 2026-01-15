@@ -2,7 +2,7 @@ import { projectModel } from "~~/server/mongodb";
 import { APIResponse, IProject } from "~~/typing";
 
 export default defineEventHandler(async (event): Promise<APIResponse<IProject>> => {
-        if(event.context.auth !== true) {
+        if(!event.context.auth) {
         return {
             success: false,
             message: 'Unauthorized',

@@ -1,8 +1,15 @@
 import { Schema, model } from "mongoose";
-import { IContact } from "~~/typing";
+import { IContact, IIcon } from "~~/typing";
+const IconSchema = new Schema<IIcon>(
+    {
+        name: { type: String, required: true },
+        color: { type: String, required: false },
+    },
+    { _id: false }
+);
 const Contact = new Schema<IContact>({
   icon: {
-    type: String,
+    type: IconSchema,
     required: true,
   },
   name: {

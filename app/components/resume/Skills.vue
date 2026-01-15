@@ -13,9 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ISkillCat } from '~/../typing';
+import type { ISkillCategory } from '~/../typing';
 
-const props = defineProps<ISkillCat>()
+const props = defineProps<ISkillCategory>()
 </script>
 
 <style lang="sass" scoped>

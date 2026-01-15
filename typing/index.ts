@@ -15,11 +15,13 @@ export interface IResumeItem {
   position: string;
   aboutme: string;
 }
-export interface IResumeLocalized {
+export interface IResume {
   _id: string;
   en: IResumeItem;
   ru: IResumeItem;
   uk: IResumeItem;
+  skillCategories: ISkillCategory[];
+  contacts: IContact[];
 }
 export interface IIcon {
     name: string;
@@ -29,15 +31,13 @@ export interface ISkill {
     icon: IIcon;
     name: string
 }
-export interface ISkillCat {
-    _id: string | Types.ObjectId;
+export interface ISkillCategory {
     icon: IIcon;
     name: string;
     skills: ISkill[]
 }
 export interface IContact {
-  _id: string;
-  icon: string;
+  icon: IIcon;
   name: string;
   link: string;
 }

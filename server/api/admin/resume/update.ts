@@ -1,11 +1,11 @@
 import { resumeModel } from "~~/server/mongodb";
-import type { APIResponse, IResumeLocalized } from "~~/typing";
+import type { APIResponse, IResume } from "~~/typing";
 
 const ID = 'singleton';
-export default defineEventHandler(async (event): Promise<APIResponse<IResumeLocalized>> => {
+export default defineEventHandler(async (event): Promise<APIResponse<IResume>> => {
     const body = await readBody(event);
     const { data } = body;
-      if(event.context.auth !== true) {
+      if(!event.context.auth) {
         return {
             success: false,
             message: 'Unauthorized',

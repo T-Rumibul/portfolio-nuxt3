@@ -23,45 +23,28 @@
                 <Icon name="mdi:minus" />
             </motion.button>
         </div>
-        <div class="flex gap-5 mt-4">
-            <motion.button :whileHover="{
-                scale: 1.1
-            }" class="bg-green-800 text-gray-200 font-bold rounded px-4 py-2 cursor-pointer"
-            @click="$emit('submit', data)"
-            
-            >Sumbit</motion.button>
-            <motion.button @click="emit('delete')" :whileHover="{
-                scale: 1.1
-            }" class="bg-red-800 text-gray-200 font-bold rounded px-4 py-2 cursor-pointer">Delete</motion.button>
-        </div>
+  
+             <AdminActionButtons @submit="$emit('submit')" @discard="emit('delete')"
+                    :discard-button="'Delete'" />
+    
     </div>
 
 
 </template>
 <script setup lang="ts">
 import { motion } from 'motion-v'
-const props = defineProps<{
+import type { IIcon, ISkill } from '~~/typing';
+const data = defineModel<{
     name: string;
-    icon: { name: string, color: string };
-    skills: { icon: { name: string, color: string }, name: string }[]
+    icon: IIcon;
+    skills: ISkill[]
 
-}>()
+}>({ required: true })
 const emit = defineEmits<{
-    (e: 'submit', updated: {
-    name: string;
-    icon: { name: string, color: string };
-    skills: { icon: { name: string, color: string }, name: string }[]
-
-}) : void;
+    (e: 'submit'): void;
     (e: 'delete'): void
 }>()
 
-
-const data = ref({
-    name: props.name,
-    icon: props.icon,
-    skills: props.skills
-})
 const categoryOptions = [
     {
         icon: { name: 'mdi:code-tags', color: 'text-blue-500' },
@@ -82,14 +65,18 @@ const categoryOptions = [
 ]
 
 
-const skillOptions = ref<Array<{ icon: { name: string, color: string }, value: string }>>([
+const skillOptions = ref<Array<{ icon: IIcon, value: string }>>([
     { icon: { name: 'mdi:language-javascript', color: 'text-yellow-500' }, value: 'JavaScript' },
     { icon: { name: 'mdi:language-typescript', color: 'text-blue-500' }, value: 'TypeScript' },
+    {icon: { name: 'mdi:language-html5', color: 'text-orange-500' }, value: 'HTML5' },
+    { icon: { name: 'mdi:language-css3', color: 'text-blue-500' }, value: 'CSS3' },
+    { icon: { name: 'mdi:tailwind', color: 'text-blue-400' }, value: 'Tailwind CSS' },
     { icon: { name: 'mdi:language-python', color: 'text-green-500' }, value: 'Python' },
     { icon: { name: 'mdi:language-ruby', color: 'text-red-500' }, value: 'Ruby' },
     { icon: { name: 'mdi:language-go', color: 'text-blue-500' }, value: 'Go' },
     { icon: { name: 'mdi:language-java', color: 'text-red-500' }, value: 'Java' },
     { icon: { name: 'mdi:language-cpp', color: 'text-blue-500' }, value: 'Cpp' },
+    { icon: { name: 'mdi:language-rust', color: 'text-brown-500' }, value: 'Rust' },
     { icon: { name: 'mdi:language-csharp', color: 'text-red-500' }, value: 'CSharp' },
     { icon: { name: 'mdi:language-php', color: 'text-blue-500' }, value: 'PHP' },
     { icon: { name: 'mdi:language-swift', color: 'text-red-500' }, value: 'Swift' },
@@ -116,13 +103,13 @@ const addSkill = () => {
 const removeSkill = () => {
     data.value.skills.pop()
 }
-const handleSkillUpdate = (newOption: { icon: { name: string, color: string }, value: string }, idx: number) => {
+const handleSkillUpdate = (newOption: { icon: IIcon, value: string }, idx: number) => {
     data.value.skills[idx] = {
         icon: newOption.icon,
         name: newOption.value
     }
 }
-const handleCategoryUpdate = (newOption: { icon: { name: string, color: string }, value: string }) => {
+const handleCategoryUpdate = (newOption: { icon: IIcon, value: string }) => {
     data.value.icon = newOption.icon
     data.value.name = newOption.value
 }

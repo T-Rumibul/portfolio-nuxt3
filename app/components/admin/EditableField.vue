@@ -43,7 +43,7 @@ const value = defineModel<string>({
 });
 const paragraphRef = ref<HTMLElement | null>(null);
 const emit = defineEmits<{
-    (e: 'update', newValue: string | string[]): void
+    (e: 'update', newValue: string): void
 }>();
 
 watch(() => props.text, (newVal) => {

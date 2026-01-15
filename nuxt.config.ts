@@ -23,19 +23,16 @@ export default defineNuxtConfig({
   },
   css: ["~/assets/css/main.css"],
   vite: {
-    css: {
-      preprocessorOptions: {
-        sass: {
-          additionalData: '@use "@/assets/css/global.sass" as *;',
-        },
-      },
-    },
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss({
+      optimize: {
+        minify: true,
+      }
+      
+    })
+  ],
   },
   modules: [
     "@nuxtjs/i18n",
-    "@rah-emil/vite-plugin-vue-type-imports/nuxt",
-    "@nuxtjs/critters",
     "@nuxt/scripts",
     "motion-v/nuxt",
     "@nuxt/icon",

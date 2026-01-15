@@ -72,8 +72,3 @@ onMounted(() => {
   }, 250);
 });
 </script>
-
-<style lang="sass">
-
-
-</style>

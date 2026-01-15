@@ -1,4 +1,4 @@
-import type { IContact, IResumeLocalized, TurnstileScript, APIResponse, IAuthVerifyResponse } from "~/../typing"
+import type { APIResponse, IAuthVerifyResponse } from "~/../typing"
 
 export const useAuth = () => {
     const token = useCookie<string>('accessToken', {

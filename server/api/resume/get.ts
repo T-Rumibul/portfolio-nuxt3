@@ -1,8 +1,8 @@
 import { resumeModel } from "~~/server/mongodb";
-import { APIResponse, IResumeLocalized } from "~~/typing";
+import { APIResponse, IResume } from "~~/typing";
 
 const ID = 'singleton';
-export default defineEventHandler(async (event): Promise<APIResponse<IResumeLocalized>>  => {
+export default defineEventHandler(async (event): Promise<APIResponse<IResume>>  => {
   const all = await resumeModel.findById(ID);
   if (all === null) {
     const placeholder = {
@@ -10,7 +10,7 @@ export default defineEventHandler(async (event): Promise<APIResponse<IResumeLoca
       position: 'Your Position',
       aboutme: 'A brief description about yourself.',
     }
-    const newResume = new resumeModel({ _id: ID, en: placeholder, ru: placeholder, uk: placeholder });
+    const newResume = new resumeModel({ _id: ID, en: placeholder, ru: placeholder, uk: placeholder, skillCategories: [], contacts: [] });
     await newResume.save();
     return {
       success: true,

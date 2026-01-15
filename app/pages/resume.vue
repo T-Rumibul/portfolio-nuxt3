@@ -1,14 +1,14 @@
 <template>
-  <div class="flex items-center justify-center min-h-screen relative" v-if="resumeInfo">
+  <div class="flex items-center justify-center min-h-screen relative" >
 
-    <div class="text-base-content max-w-6xl px-6 py-12 relative font-[OS]">
+    <div class="text-base-content max-w-6xl px-6 py-12 relative font-[OS]" v-if="resumeState">
 
       <div class="d-flex justify-center align-center">
 
         <div class="font-[RC] text-center uppercase overflow-hidden mt-6">
           <motion.h1 ref="titleRef" class="text-3xl font-bold text-base-content">{{
-            resumeInfo[locale].name }}</motion.h1>
-          <motion.h2 class="mt-2 text-2xl tracking-wide text-accent-blue">{{ resumeInfo[locale].position }}
+            resumeState[locale].name }}</motion.h1>
+          <motion.h2 class="mt-2 text-2xl tracking-wide text-accent-blue">{{ resumeState[locale].position }}
           </motion.h2>
         </div>
       </div>
@@ -20,7 +20,7 @@
             <h3 class="text-lg font-semibold uppercase tracking-widest text-base-content ">{{
               $t('about_experience_title')
             }}</h3>
-            <p class="mt-4 ml-4 text-md text-base-content leading-7" v-html="resumeInfo[locale].aboutme">
+            <p class="mt-4 ml-4 text-md text-base-content leading-7" v-html="resumeState[locale].aboutme">
 
             </p>
           </div>
@@ -28,8 +28,8 @@
             p-6 rounded-lg w-full">
             <h3 class="text-lg font-semibold  tracking-widest uppercase text-base-content ">{{
               $t('about_contacts_title') }}</h3>
-            <ResumeContacts class="ml-4 mt-4 text-md" v-for="contact in contactsInfo" :key="contact._id"
-              :icon="contact.icon" :name="contact.name" :link="contact.link" />
+            <ResumeContacts class="ml-4 mt-4 text-md" v-for="contact in resumeState.contacts"
+              :icon="contact.icon.name" :name="contact.name" :link="contact.link" />
           </div>
         </div>
         <div class="flex flex-wrap flex-1">
@@ -57,18 +57,18 @@
             <h3 class="text-lg font-semibold  tracking-widest uppercase text-base-content ">{{
               $t('about_skills') }}</h3>
 
-            <ResumeSkills class=" mt-6 text-md" v-for="skill in skills" v-bind="skill" />
+            <ResumeSkills class=" mt-6 text-md" v-for="skill in resumeState.skillCategories" v-bind="skill" />
           </div>
         </div>
       </div>
 
     </div>
+    <div v-else><CommonLoadingCircle/></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { motion, useScroll, useTransform } from 'motion-v'
-import type { ISkillCat } from '~/../typing';
+import { motion } from 'motion-v'
 
 const languages = ref([{
   icon: 'openmoji:flag-united-states',
@@ -85,28 +85,6 @@ const languages = ref([{
 }])
 
 const { locale } = useI18n();
-const titleRef = ref()
 
-const translateLeft = {
-  translateX: '-100%'
-}
-const translateZero = {
-  translateX: 0
-}
-const translateRight = {
-  translateX: '100%'
-}
-const { scrollX, scrollY, scrollYProgress } = useScroll({
-  target: titleRef,
-
-})
-const scaleTitle = useTransform(scrollYProgress as any, [0, 1], [1.5, 1])
-const scaleSubtitle = useTransform(scrollYProgress as any, [0, 1], [1, 1.5])
-const t = await useResumeData();
-const resumeInfo = ref(await useResumeData());
-
-const contactsInfo = ref<Array<{ _id: string; name: string; icon: string, link: string }>>([]);
-const skills = ref<ISkillCat[]>([])
-skills.value = await useSkillsData();
-contactsInfo.value = await useContactsData() as Array<{ _id: string; name: string; icon: string, link: string }>;
+const resumeState = useResumeState();
 </script>
