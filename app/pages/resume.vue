@@ -1,14 +1,14 @@
 <template>
   <div class="flex items-center justify-center min-h-screen relative" >
 
-    <div class="text-base-content max-w-6xl px-6 py-12 relative font-[OS]" v-if="resumeState">
+    <div class="text-base-content max-w-6xl px-6 py-12 relative font-[OS]" v-show="resumeState">
 
       <div class="d-flex justify-center align-center">
 
         <div class="font-[RC] text-center uppercase overflow-hidden mt-6">
           <motion.h1 ref="titleRef" class="text-3xl font-bold text-base-content">{{
-            resumeState[locale].name }}</motion.h1>
-          <motion.h2 class="mt-2 text-2xl tracking-wide text-accent-blue">{{ resumeState[locale].position }}
+            resumeState ? resumeState[locale].name : '' }}</motion.h1>
+          <motion.h2 class="mt-2 text-2xl tracking-wide text-accent-blue">{{  resumeState ? resumeState[locale].position : '' }}
           </motion.h2>
         </div>
       </div>
@@ -20,7 +20,7 @@
             <h3 class="text-lg font-semibold uppercase tracking-widest text-base-content ">{{
               $t('about_experience_title')
             }}</h3>
-            <p class="mt-4 ml-4 text-md text-base-content leading-7" v-html="resumeState[locale].aboutme">
+            <p class="mt-4 ml-4 text-md text-base-content leading-7" v-html="resumeState ? resumeState[locale].aboutme : ''">
 
             </p>
           </div>
@@ -28,7 +28,7 @@
             p-6 rounded-lg w-full">
             <h3 class="text-lg font-semibold  tracking-widest uppercase text-base-content ">{{
               $t('about_contacts_title') }}</h3>
-            <ResumeContacts class="ml-4 mt-4 text-md" v-for="contact in resumeState.contacts"
+            <ResumeContacts class="ml-4 mt-4 text-md" v-for="contact in resumeState?.contacts"
               :icon="contact.icon.name" :name="contact.name" :link="contact.link" />
           </div>
         </div>
@@ -57,13 +57,13 @@
             <h3 class="text-lg font-semibold  tracking-widest uppercase text-base-content ">{{
               $t('about_skills') }}</h3>
 
-            <ResumeSkills class=" mt-6 text-md" v-for="skill in resumeState.skillCategories" v-bind="skill" />
+            <ResumeSkills class=" mt-6 text-md" v-for="skill in resumeState?.skillCategories" v-bind="skill" />
           </div>
         </div>
       </div>
 
     </div>
-    <div v-else><CommonLoadingCircle/></div>
+    <div v-show="!resumeState"><CommonLoadingCircle/></div>
   </div>
 </template>
 
