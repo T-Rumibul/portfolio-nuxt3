@@ -3,9 +3,7 @@ import type { IContact, IProject, IResume, ISkillCategory, TurnstileScript } fro
 export const useResumeState = () => {
     const state = useState<IResume | null>('resumeData', () => null);
     if (!state.value) {
-        $fetch('/api/resume/get', {
-            method: 'POST',
-        }).then((response) => {
+        $fetch('/api/resume/get').then((response) => {
             if (response && response.success) {
                 const data = response.result;
                 state.value = data;
@@ -18,9 +16,7 @@ export const useResumeState = () => {
 export const useProjectsState = () => {
     const state = useState<IProject[] | null>('projectsData', () => null);
     if (!state.value) {
-        $fetch('/api/project/get', {
-        method: 'POST',
-    }).then((response) => {
+        $fetch('/api/project/get').then((response) => {
             if (response && response.success) {
                 const data = response.result;
                 state.value = data;
